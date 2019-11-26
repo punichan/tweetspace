@@ -1,0 +1,28 @@
+@import 'mixin/mixin';
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  &__title{
+    margin: 0 auto;
+    &__text{
+    font-size: 40px;
+    text-shadow: 3px 2px 2px silver;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    }
+  }
+  &__button{
+    margin: auto 0 ;
+    &__signin{
+      margin-right: 5px;
+      @include btn(20px,#FFF,40px)
+    }
+    &__signup{
+      
+      margin-right: 20px;
+      @include btn(20px,#FFF,40px)
+    }
+  }
+}

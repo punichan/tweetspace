@@ -1,0 +1,37 @@
+@import 'mixin/mixin';
+
+.sign-contener{
+  margin: 2em auto;
+  // border:solid 1px #000000;
+  width: 50em;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  .sign-text{
+    text-align: center;
+    font-size: 30px;
+    text-shadow: 3px 2px 2px silver;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+  }
+  #new_user{
+    text-align: center;
+    .field{
+      margin: 2em auto;
+      font-size: 20px;
+      text-shadow: 3px 2px 2px silver;
+      font-weight: bold;
+      text-decoration: none;
+      color: black;
+        .textfield-size{
+          box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+          border: solid 5px #008080;
+          margin-top: 1em;
+        }
+    }
+    .actions{
+      &__btn{
+      @include btn(20px,#FFF,60px);
+      }
+    }
+  }
+}
