@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Tweetspace
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+  .header
+    .header__title
+      =link_to "#", class:"header__title__text" do
+        TC
+    .header__button
+      =link_to "#", class: "header__button__signin" do
+        in
+      =link_to "#", class: "header__button__signup"do
+        up
+  = yield
+
