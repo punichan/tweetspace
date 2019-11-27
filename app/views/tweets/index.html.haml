@@ -1,0 +1,39 @@
+.index-contener
+  -# -@tweets.each do |tweet|
+  .tweets-contener
+    .tweet-contener
+      .avater-contener
+        =link_to (image_tag "https://uds.gnst.jp/rest/img/dvmyc8bu0000/s_0n7k.jpg?t=1541006890", alt: "", class: "avater-size"), "#" 
+        -# =user.avater
+      .contents-contener
+        .contents-contener__user
+          =link_to 'Masami Ichikawa', "#", class:"user-name" 
+          -# =user.name
+          .daytime
+            2019/11/27 20:00
+            -# =tweet.created_at
+        .contents-contener__text
+          -# =tweet.text
+          東洋亭の美味しいハンバーグ！阪急梅田本店13階に店舗があります。
+          この他にも大きい有頭エビを使ったエビフライのプレートもあります。
+          冷やしトマトがとても美味しいので、セットにすることをオススメします。
+        .contents-contener__image
+          =link_to (image_tag "https://www.lettuceclub.net/i/R1/img/dish/1/S20150225020001A_000.png?x=520", alt: "", class: "image-size"), "#"
+          -# =tweet.image
+        .contents-contener__contents
+          -# =tweet.like
+          .contents-contener__contents--icon-font= icon 'far', 'heart'
+
+  .tweets-contener
+    .tweet-contener
+      .avater-contener
+        =link_to (image_tag "https://uds.gnst.jp/rest/img/dvmyc8bu0000/s_0n7k.jpg?t=1541006890", alt: "", class: "avater-size"), "#" 
+        .avater-contener__btn= icon 'far', 'user-circle'
+      .contents-contener
+        .contents-contener__user
+          =link_to 'Masami Ichikawa', "#", class:"user-name" 
+          -# =user.name
+        .contents-contener__text
+          趣味は大阪の美味しいお店を探して食べ歩くことです。美味しいお店があったら紹介していきます。
+          オススメのお店があれば、教えてください。よろしくお願いします。
+          -# =user.profile
