@@ -4,75 +4,84 @@
   margin: 2em auto;
   width: 50em;
 
-  .top-contener{
+  .tweets-contener{
+    @include tweet-image;
 
-    .tweets-contener{
-      @include tweet-image;
+    .tweet-contener{
+      padding: 2em;
+      margin: 1em;
+      display: flex;
 
-      .tweet-contener{
-        padding: 2em;
-        margin: 1em;
-        display: flex;
+      .avater-contener{
 
-        .avater-contener{
+        .avater-size{
+          margin: 0 1em;
+          @include avater;
+        }
+      }
+      .contents-contener{
+        width: 40em;
+        text-align: center;
 
-          .avater-size{
-            margin: 0 1em;
-            @include avater;
+        &__user{
+          display: flex;
+          justify-content: space-between;
+
+          .user-name{
+            text-align: left;
+            font-weight: bold;
+            color: black;
+            text-decoration: none;
+          }
+          .daytime{
+            text-align: left;
+            font-weight: bold;
           }
         }
-        .contents-contener{
-          width: 40em;
-          text-align: center;
+        &__text{
+          text-align: left;
+          margin-bottom: 2em;
+        }
+        &__image{
+          margin: 2em 0;
 
-          .contents-contener__user{
-            display: flex;
-            justify-content: space-between;
-
-            .user-name{
-              text-align: left;
-              font-weight: bold;
-              color: black;
-              text-decoration: none;
-            }
-            .daytime{
-              text-align: left;
-              font-weight: bold;
-            }
+          .image-size{
+            width: 10em;
+            height: 10em;
+            @include tweet-image;
           }
-          &__text{
-            text-align: left;
-            margin-bottom: 2em;
-          }
-          &__image{
-            margin: 2em 0;
+        }
+        &__contents{
+          display: flex;
 
-            .image-size{
-              width: 10em;
-              height: 10em;
-              @include tweet-image;
-            }
-          }
-          &__contents{
-            display: flex;
-
-            &__icon-font{
-            }
+          &--icon-font{
           }
         }
       }
     }
   }
-  .bottom-contener{
+  .tweets-contener{
 
-    .users-contener{
+    .tweet-contener{
 
-      .follow-contener{
+      .avater-contener{
 
-        &__avater{}
-        &__btn{}
+        .avater-size{
+        }
+        &__btn{
+          text-align: center;
+          margin-top: 1em;
+        }
       }
-      .text-contener{}
+      .contents-contener{
+        &__user{
+          .user-name{
+          }
+        }
+        &__text{
+
+        }
+      }
     }
   }
 }
