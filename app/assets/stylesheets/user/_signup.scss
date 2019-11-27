@@ -7,21 +7,13 @@
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
   .sign-text{
     text-align: center;
-    font-size: 30px;
-    text-shadow: 3px 2px 2px silver;
-    font-weight: bold;
-    text-decoration: none;
-    color: black;
+    @include font-size(2em,black);
   }
   #new_user{
     text-align: center;
     .field{
       margin: 2em auto;
-      font-size: 20px;
-      text-shadow: 3px 2px 2px silver;
-      font-weight: bold;
-      text-decoration: none;
-      color: black;
+      @include font-size(1em,black);
         .textfield-size{
           box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
           border: solid 5px #008080;
@@ -32,6 +24,14 @@
       &__btn{
       @include btn(20px,#FFF,60px);
       }
+    }
+    .login-text{
+      margin: 1em 0;
+      text-align: center;
+      @include font-size(1em,black);
+    }
+    .login-btn{
+      @include btn(20px,#FFF,60px);
     }
   }
 }
