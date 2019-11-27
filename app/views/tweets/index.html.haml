@@ -1,0 +1,32 @@
+.index-contener
+  .top-contener
+    .tweets-contener
+      -# -@tweets.each do |tweet|
+      .tweet-contener
+        .avater-contener
+          =link_to (image_tag "https://uds.gnst.jp/rest/img/dvmyc8bu0000/s_0n7k.jpg?t=1541006890", alt: "", class: "avater-size"), "#" 
+          -# =user.avater
+        .contents-contener
+          .contents-contener__user
+            =link_to 'Masami Ichikawa', "#", class:"user-name"
+            -# =user.name
+            .daytime
+              2019/11/27 20:00
+          .contents-contener__text
+            -# =tweet.text
+            東洋亭の美味しいハンバーグ！阪急梅田本店13階に店舗があります。
+            この他にも大きい有頭エビを使ったエビフライのプレートもあります。
+            冷やしトマトがとても美味しいので、セットにすることをオススメします。
+          .contents-contener__image
+            =link_to (image_tag "https://www.lettuceclub.net/i/R1/img/dish/1/S20150225020001A_000.png?x=520", alt: "", class: "image-size"), "#"
+            -# =tweet.image
+          .contents-contener__contents
+            -# =tweet.like
+            .contents-contener__contents--icon-font= icon 'far', 'heart'
+
+  .bottom-contener
+    .users-contener
+      .follow-contener
+        .follow-contener__avater
+        .follow-contener__btn
+      .text-contener

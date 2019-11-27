@@ -1,0 +1,78 @@
+@import 'mixin/mixin'; 
+
+.index-contener{
+  margin: 2em auto;
+  width: 50em;
+
+  .top-contener{
+
+    .tweets-contener{
+      @include tweet-image;
+
+      .tweet-contener{
+        padding: 2em;
+        margin: 1em;
+        display: flex;
+
+        .avater-contener{
+
+          .avater-size{
+            margin: 0 1em;
+            @include avater;
+          }
+        }
+        .contents-contener{
+          width: 40em;
+          text-align: center;
+
+          .contents-contener__user{
+            display: flex;
+            justify-content: space-between;
+
+            .user-name{
+              text-align: left;
+              font-weight: bold;
+              color: black;
+              text-decoration: none;
+            }
+            .daytime{
+              text-align: left;
+              font-weight: bold;
+            }
+          }
+          &__text{
+            text-align: left;
+            margin-bottom: 2em;
+          }
+          &__image{
+            margin: 2em 0;
+
+            .image-size{
+              width: 10em;
+              height: 10em;
+              @include tweet-image;
+            }
+          }
+          &__contents{
+            display: flex;
+
+            &__icon-font{
+            }
+          }
+        }
+      }
+    }
+  }
+  .bottom-contener{
+
+    .users-contener{
+
+      .follow-contener{
+
+        &__avater{}
+        &__btn{}
+      }
+      .text-contener{}
+    }
+  }
+}
