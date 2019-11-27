@@ -1,0 +1,23 @@
+.sign-contener
+  %h2.sign-text Log in
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .field
+      = f.label :email
+      %br/
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: "textfield-size"
+    .field
+      = f.label :password
+      %br/
+      = f.password_field :password, autocomplete: "current-password", class: "textfield-size"
+    - if devise_mapping.rememberable?
+      .field
+        = f.check_box :remember_me
+        = f.label :remember_me
+    .actions
+      = f.submit "in", class: "actions__btn"
+    %p.login-text Do you have an account?
+    - if devise_mapping.registerable? && controller_name != 'registrations'
+      = link_to "up", new_registration_path(resource_name), class: "login-btn"
+    %p.login-text Forgot your password?
+    - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
+      = link_to "here", new_password_path(resource_name), class: "login-btn"

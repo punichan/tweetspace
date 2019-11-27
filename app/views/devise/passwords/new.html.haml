@@ -1,0 +1,12 @@
+.sign-contener
+  %h2.sign-text Forgot your password?
+  = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+    = render "devise/shared/error_messages", resource: resource
+    .field
+      = f.label :email
+      %br/
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: "textfield-size"
+    .actions
+      %p.login-text Send me reset password instructions
+      = f.submit "Send", class: "actions__btn"
+
