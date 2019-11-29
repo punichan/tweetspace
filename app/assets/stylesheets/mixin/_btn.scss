@@ -1,12 +1,12 @@
-@mixin btn($font,$color,$size){
+@mixin btn($font,$color,$width,$height){
   font-size: $font;
   text-shadow: 1px 1px 2px silver;
   display: inline-block;
   text-decoration: none;
   color: $color;
-  width: $size;
-  height: $size;
-  line-height: $size;
+  width: $width;
+  height: $height;
+  line-height: $height;
   border-radius: 50%;
   text-align: center;
   overflow: hidden;

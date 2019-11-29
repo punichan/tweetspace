@@ -17,12 +17,12 @@
     margin: auto 0 ;
     &__signin{
       margin-right: 5px;
-      @include btn(20px,#FFF,40px)
+      @include btn(1em,white,5em,3em);
     }
     &__signup{
       
       margin-right: 20px;
-      @include btn(20px,#FFF,40px)
+      @include btn(1em,white,5em,3em);
     }
   }
 }

@@ -1,5 +1,5 @@
 .contener
-  %h2.sign-text Log in
+  %h2.sign-text Sign in
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .field
       = f.label :email
@@ -14,10 +14,10 @@
         = f.check_box :remember_me
         = f.label :remember_me
     .actions
-      = f.submit "in", class: "actions__btn"
+      = f.submit "Sign in", class: "actions__btn"
     %p.login-text Do you have an account?
     - if devise_mapping.registerable? && controller_name != 'registrations'
-      = link_to "up", new_registration_path(resource_name), class: "login-btn"
+      = link_to "Sign up", new_registration_path(resource_name), class: "login-btn"
     %p.login-text Forgot your password?
     - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
       = link_to "here", new_password_path(resource_name), class: "login-btn"

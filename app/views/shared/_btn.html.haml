@@ -1,0 +1,8 @@
+.btn-box
+  =link_to new_tweet_path, class: "btn-box__tweet" do
+    = icon 'far', 'edit'
+  - if controller.action_name == "index"
+    =link_to "/users/#{current_user.id}", class: "btn-box__mypage" do
+      = icon 'far', 'user'
+
+    

@@ -14,14 +14,12 @@
       margin: 2em auto;
       @include font-size(1em,black);
         .textfield-size{
-          box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
-          border: solid 5px #008080;
-          margin-top: 1em;
+          @include textbox-size;
         }
     }
     .actions{
       &__btn{
-      @include btn(20px,#FFF,60px);
+      @include btn(1em,white,6em,3em);
       }
     }
     .login-text{
@@ -30,7 +28,7 @@
       @include font-size(1em,black);
     }
     .login-btn{
-      @include btn(20px,#FFF,60px);
+      @include btn(1em,white,6em,3em);
     }
   }
 }
