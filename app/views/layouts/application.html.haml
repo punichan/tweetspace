@@ -16,8 +16,8 @@
       .header__button
         =link_to destroy_user_session_path, method: :delete, class: "header__button__signin" do
           Log out
-        -# =link_to user_path, class: "header__button__signin" do
-        -#   My page
+        =link_to "/users/#{current_user.id}", class: "header__button__signin" do
+          My page
     -else
       .header__button
         =link_to new_user_session_path, class: "header__button__signin" do

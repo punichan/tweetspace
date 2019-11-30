@@ -15,12 +15,25 @@
       margin: 1em;
       display: flex;
       @include tweet-image;
+      position: relative;
+      z-index: 1;
+
+      .link-btn{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+      }
 
       .avater-contener{
 
         .avater-size{
           margin: 0 1em;
           @include avater;
+          position: relative;
+          z-index: 3;
         }
       }
       .contents-contener{
@@ -30,6 +43,8 @@
         &__user{
           display: flex;
           justify-content: space-between;
+          position: relative;
+          z-index: 3;
 
           .user-name{
             text-align: left;
@@ -52,6 +67,7 @@
             width: 2em;
             height: 2em;
             @include tweet-image;
+            
           }
         }
         &__contents{
@@ -88,8 +104,8 @@
     }
   }
 }
+
 .btn-box{
-  display: flex;
   position: fixed;
   z-index: 1;
   bottom: 2em;
@@ -97,10 +113,5 @@
 
   &__tweet{
     @include btn(2em,white,3em,3em);
-    margin-right: 1em;
-  }
-  &__mypage{
-    @include btn(2em,white,3em,3em);
-    
   }
 }
