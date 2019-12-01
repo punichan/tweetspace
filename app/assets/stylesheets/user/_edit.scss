@@ -10,17 +10,18 @@
       margin: 2em auto;
       @include font-size(1em,black);
 
-      #tweet_tweet{
+      #user_avater{
        @include textbox-size;
+        
+      }
+      #user_name{
+        @include textbox-size;
+      }
+      #user_profile{
+        @include textbox-size;
         height: 5em;
         width: 40em;
       }
-      #tweet_image{
-        @include textbox-size;
-      }
-    }
-    .actions{
-
       .actions__btn{
         @include btn(2em,white,6em,3em);
         margin-bottom: 2em;

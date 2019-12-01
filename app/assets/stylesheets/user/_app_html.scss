@@ -3,8 +3,11 @@
 .header{
   display: flex;
   justify-content: space-between;
+  position: relative;
+
   &__title{
     margin: 0 auto;
+    
     &__text{
     font-size: 40px;
     text-shadow: 3px 2px 2px silver;
@@ -13,15 +16,20 @@
     color: black;
     }
   }
+
   &__button{
+    position: absolute;
+    right: 1em;
+    top: 1em;
     margin: auto 0 ;
+
     &__signin{
-      margin-right: 5px;
+      margin-right: 1em;
       @include btn(1em,white,5em,3em);
     }
+
     &__signup{
-      
-      margin-right: 20px;
+      margin-right: 1em;
       @include btn(1em,white,5em,3em);
     }
   }
