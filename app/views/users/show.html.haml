@@ -1,3 +1,38 @@
-.index-contener
-  =render "shared/tweets"
-  =render "shared/btn"
+.main-contener
+  .index-contener
+    =render "shared/tweets"
+  .user-contener
+    -if user_signed_in? && @user.id == current_user.id
+      .user-name
+        =image_tag "#{current_user.avater.url}", alt: "", class: "user-name__avater"
+        %h2.user-name__name=current_user.name
+        -if @user.id == current_user.id
+          =link_to edit_user_path(current_user.id), class: "user-name__edit" do
+            =icon 'fas', 'tools'
+      .user-followbox
+        =link_to "follow", "#", class: "user-followbox__follow"
+        =link_to "follower", "#", class: "user-followbox__follower"
+      .user-profile
+        =@user.profile
+      .user-followbtn
+        =link_to "Follow Me", "#", class: "user-followbtn--size"
+
+    - else
+      .user-name
+        =image_tag "#{@user.avater.url}", alt: "", class: "user-name__avater"
+        %h2.user-name__name=@user.name
+        -if @user.id == current_user.id
+          =link_to edit_user_path(@user.id), class: "user-name__edit" do
+            =icon 'fas', 'tools'
+      .user-followbox
+        =link_to "follow", "#", class: "user-followbox__follow"
+        =link_to "follower", "#", class: "user-followbox__follower"
+      .user-profile
+        =@user.profile
+      .user-followbtn
+        =link_to "Follow Me", "#", class: "user-followbtn--size"
+  -if user_signed_in?
+    .btn-box
+      =render "shared/tweet_btn"
+
+    

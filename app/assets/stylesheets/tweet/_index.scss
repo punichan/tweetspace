@@ -1,106 +1,172 @@
 @import 'mixin/mixin'; 
 
-.index-contener{
-  margin: 2em auto;
-  width: 50em;
-  h2{
-    @include font-size(2em,black);
-    text-align: center;
-    margin-top: 2em;
-  }
-  .tweets-contener{
-
-    .tweet-contener{
-      padding: 2em;
-      margin: 1em;
-      display: flex;
-      @include tweet-image;
-
-      .avater-contener{
-
-        .avater-size{
-          margin: 0 1em;
-          @include avater;
-        }
-      }
-      .contents-contener{
-        width: 40em;
-        text-align: center;
-
-        &__user{
-          display: flex;
-          justify-content: space-between;
-
-          .user-name{
-            text-align: left;
-            font-weight: bold;
-            color: black;
-            text-decoration: none;
-          }
-          .daytime{
-            text-align: left;
-            font-weight: bold;
-          }
-        }
-        &__text{
-          text-align: left;
-          margin-bottom: 2em;
-        }
-        &__image{
-          margin: 2em 0;
-          .image-size{
-            width: 2em;
-            height: 2em;
-            @include tweet-image;
-          }
-        }
-        &__contents{
-          display: flex;
-
-          &--icon-font{
-          }
-        }
-      }
-    }
-  }
-  .tweets-contener{
-
-    .tweet-contener{
-
-      .avater-contener{
-
-        .avater-size{
-        }
-        &__btn{
-          text-align: center;
-          margin-top: 1em;
-        }
-      }
-      .contents-contener{
-        &__user{
-          .user-name{
-          }
-        }
-        &__text{
-
-        }
-      }
-    }
-  }
-}
-.btn-box{
+.main-contener{
   display: flex;
-  position: fixed;
-  z-index: 1;
-  bottom: 2em;
-  right: 4em;
-
-  &__tweet{
-    @include btn(2em,white,3em,3em);
-    margin-right: 1em;
-  }
-  &__mypage{
-    @include btn(2em,white,3em,3em);
+  align-items: baseline;
+  .index-contener{
+    margin: 2em 4em 0 2em;
+    width: 50em;
     
+    h2{
+      @include font-size(2em,black);
+      text-align: center;
+      margin-top: 2em;
+    }
+    .tweets-contener{
+
+      .tweet-contener{
+        padding: 2em;
+        margin: 1em;
+        display: flex;
+        @include tweet-image;
+        position: relative;
+        z-index: 1;
+
+        .link-btn{
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 2;
+        }
+
+        .avater-contener{
+
+          .avater-size{
+            margin: 0 1em;
+            @include avater;
+            position: relative;
+            z-index: 3;
+          }
+        }
+        .contents-contener{
+          width: 40em;
+          text-align: center;
+
+          &__user{
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            z-index: 3;
+
+            .user-name{
+              text-align: left;
+              font-weight: bold;
+              color: black;
+              text-decoration: none;
+            }
+            .daytime{
+              text-align: left;
+              font-weight: bold;
+            }
+          }
+          &__text{
+            text-align: left;
+            margin-bottom: 2em;
+          }
+          &__image{
+            margin: 2em 0;
+            .image-size{
+              width: 2em;
+              height: 2em;
+              @include tweet-image;
+              
+            }
+          }
+          &__contents{
+            display: flex;
+
+            &--icon-font{
+            }
+          }
+        }
+      }
+    }
+    .tweets-contener{
+
+      .tweet-contener{
+
+        .avater-contener{
+
+          .avater-size{
+          }
+          &__btn{
+            text-align: center;
+            margin-top: 1em;
+          }
+        }
+        .contents-contener{
+          &__user{
+            .user-name{
+            }
+          }
+          &__text{
+
+          }
+        }
+      }
+    }
+  }
+  .user-contener{
+    margin: 2em 2em 0 2em;
+    width: 20em;
+    @include tweet-image;
+
+    .user-name{
+      display: flex;
+
+      &__avater{
+        margin: 0 1em;
+        @include avater;
+      }
+      &__name{
+        margin: auto auto;
+        font-weight: bold;
+        color: black;
+        text-decoration: none;
+      }
+      &__edit{
+        margin: auto auto;
+        color: black
+      }
+    }
+  
+    .user-followbox{
+      display: flex;
+      justify-content: center;
+      margin: 1em 0;
+      &__follow{
+        margin-right: 1em;
+        @include btn(1em,white,5em,3em);
+      }
+      &__follower{
+        @include btn(1em,white,5em,3em);
+      }
+      
+
+      
+    }
+  
+    .user-profile{
+      margin: 0 1em 1em 1em;
+    }
+    .user-followbtn{
+      text-align: center;
+      &--size{
+        @include btn(1em,white,6em,4em);
+      }
+    }
+  }
+
+  .btn-box{
+    position: fixed;
+    z-index: 1;
+    bottom: 2em;
+    right: 2em;
+
+    &__tweet{
+      @include btn(2em,white,3em,3em);
+    }
   }
 }

@@ -1,9 +1,9 @@
-.tweets-contener
+%ul.tweets-contener
   -@tweets.each do |tweet|
-    .tweet-contener
+    %li.tweet-contener
+      =link_to "","/tweets/#{tweet.id}", class: "link-btn"
       .avater-contener
         =link_to (image_tag "#{tweet.user.avater.url}", alt: "", class: "avater-size"), "/users/#{tweet.user_id}" 
-        
       .contents-contener
         .contents-contener__user
           =link_to "#{tweet.user.name}", "/users/#{tweet.user_id}", class:"user-name" 
