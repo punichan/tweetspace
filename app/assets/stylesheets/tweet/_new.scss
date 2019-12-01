@@ -18,10 +18,8 @@
       #tweet_image{
         @include textbox-size;
       }
-    }
-    .actions{
 
-      .actions__btn{
+      .sendbtn{
         @include btn(2em,white,6em,3em);
         margin-bottom: 2em;
       }
