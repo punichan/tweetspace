@@ -153,7 +153,30 @@
       }
     }
   }
+  // tweet#showで使用
+  .form-contener{
+    text-align: center;
+    position: fixed;
+    bottom: 4em;
+    right: 12em;
 
+    .field{
+      margin: 2em auto;
+      @include font-size(1em,black);
+
+      #comment_comment{
+        @include textbox-size;
+        height: 5em;
+        width: 20em;
+      }
+    }
+    .actions{
+      &__btn{
+        @include btn(2em,white,3em,2em);
+        margin-bottom: 2em; 
+      }
+    }
+  }
   .user-contener{
     margin: 2em 2em 0 2em;
     width: 20em;
