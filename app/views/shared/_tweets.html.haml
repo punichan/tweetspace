@@ -18,4 +18,5 @@
         .contents-contener__contents
           -# =tweet.like
           .contents-contener__contents--likebtn-font= icon 'far', 'heart'
-          .contents-contener__contents--comment-font= icon 'far', 'comments'
+          .contents-contener__contents--comment-font=icon 'far', 'comments', "#{tweet.comments.count}"
+            

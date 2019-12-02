@@ -3,6 +3,7 @@
 .main-contener{
   display: flex;
   align-items: baseline;
+  
   .index-contener{
     margin: 2em 4em 0 2em;
     width: 50em;
@@ -71,12 +72,11 @@
               width: 2em;
               height: 2em;
               @include tweet-image;
-              
             }
           }
           &__contents{
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
 
             &--icon-font{
             }
@@ -108,7 +108,52 @@
         }
       }
     }
+    // tweet#showで使用
+    .comments-contener{
+     
+      .comment-contener{
+        padding: 2em;
+        margin: 1em;
+        display: flex;
+        @include tweet-image;
+        position: relative;
+        z-index: 1;
+
+
+        .avater-contener{
+          .avater-size{
+            margin: 0 1em;
+            @include avater;
+          }
+        }
+        .contents-contener{
+          width: 40em;
+          text-align: center;
+
+          &__name{
+            display: flex;
+            justify-content: space-between;
+           
+            .user-name{
+              text-align: left;
+              font-weight: bold;
+              color: black;
+              text-decoration: none;
+            }
+            .daytime{
+              text-align: left;
+              font-weight: bold;
+            }
+          }
+          &__comment{
+            text-align: left;
+            margin-bottom: 2em;
+          }
+        }
+      }
+    }
   }
+
   .user-contener{
     margin: 2em 2em 0 2em;
     width: 20em;
@@ -144,11 +189,7 @@
       &__follower{
         @include btn(1em,white,5em,3em);
       }
-      
-
-      
     }
-  
     .user-profile{
       margin: 0 1em 1em 1em;
     }
@@ -159,7 +200,6 @@
       }
     }
   }
-
   .btn-box{
     position: fixed;
     z-index: 1;

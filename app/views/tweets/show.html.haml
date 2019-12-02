@@ -19,15 +19,20 @@
           .contents-contener__contents
             -# =tweet.like
             .contents-contener__contents--icon-font= icon 'far', 'heart'
-   
+            .contents-contener__contents--comment-font=icon 'far', 'comments', "#{@tweet.comments.count}"
     .comments-contener
-    -@comments.each do |comment|
-      .comment-contener
-        .avater-contener
-          =link_to (image_tag "#{comment.user.avater.url}", alt: "", class: "avater-size"), "/users/#{comment.user_id}"
+      -@comments.each do |comment|
         .comment-contener
-          =comment.comment
-          
+          .avater-contener
+            =link_to (image_tag "#{comment.user.avater.url}", alt: "", class: "avater-size"), "/users/#{comment.user_id}"
+          .contents-contener
+            .contents-contener__name
+              =link_to "#{comment.user.name}", "/users/#{comment.user_id}", class:"user-name"
+              .daytime
+                =comment.created_at
+            .contents-contener__comment
+              =comment.comment
+
   .form-contener
     =form_with model:[@tweet, @comment], local: true do |f|
       .field
