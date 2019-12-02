@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :user_find, only: [:show, :edit, :update]
+  
   def show
     @user = User.find(params[:id])
     @tweets = Tweet.where(user_id: params[:id]).order("created_at DESC")
@@ -10,9 +11,9 @@ class UsersController < ApplicationController
   end
 
   def update
-    # if @user.id == current_user.id?
+    if @user.id == current_user.id
       @user.update(user_params)
-    # end
+    end
     redirect_to root_path
   end
 

@@ -76,6 +76,7 @@
           }
           &__contents{
             display: flex;
+            justify-content: center;
 
             &--icon-font{
             }
@@ -167,6 +168,8 @@
 
     &__tweet{
       @include btn(2em,white,3em,3em);
+      display: block;
+      margin-bottom: 1em;
     }
   }
 }

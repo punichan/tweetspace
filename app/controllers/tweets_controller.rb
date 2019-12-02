@@ -1,6 +1,7 @@
 class TweetsController < ApplicationController
   before_action :move_to_signup, except: [:index, :show]
   before_action :tweet_find, only: [:show, :edit, :destroy, :update]
+  
   def index
     @tweets = Tweet.order("created_at DESC").limit(10)
     @users = User.order("created_at DESC").limit(10)
@@ -22,20 +23,22 @@ class TweetsController < ApplicationController
   end
 
   def show
+    @comments = @tweet.comments
+    @comment = Comment.new
   end
 
   def edit
   end
 
   def update
-    if @tweet.user_id == current_user.id?
+    if @tweet.user_id == current_user.id
       @tweet.update(tweet_params)
     end
     redirect_to root_path
   end
 
   def destroy
-    if @tweet.user_id == current_user.id?
+    if @tweet.user_id == current_user.id
       @tweet.destroy
     end
     redirect_to root_path
