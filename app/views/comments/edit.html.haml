@@ -1,0 +1,9 @@
+.contener
+  %h2.sign-text Edit Comment
+  =form_with model:@comment, class: "new", local: true do |f|
+    .field
+      =f.label :comment
+      %br/
+      =f.text_area :comment, autofocus: true
+    .actions
+      =f.submit "send", class: "actions__btn"

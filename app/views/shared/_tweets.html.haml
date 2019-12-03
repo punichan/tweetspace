@@ -1,3 +1,4 @@
+-# scssファイルは、/tweet/_index.scssにあります。
 %ul.tweets-contener
   -@tweets.each do |tweet|
     %li.tweet-contener
@@ -16,4 +17,6 @@
           =link_to (image_tag tweet.image.url, alt: "", class: "image-size"), "#"
         .contents-contener__contents
           -# =tweet.like
-          .contents-contener__contents--icon-font= icon 'far', 'heart'
+          .contents-contener__contents--likebtn-font= icon 'far', 'heart'
+          .contents-contener__contents--comment-font=icon 'far', 'comments', "#{tweet.comments.count}"
+            
