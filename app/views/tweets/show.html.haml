@@ -20,7 +20,7 @@
             -# =tweet.like
             .contents-contener__contents--icon-font= icon 'far', 'heart'
             .contents-contener__contents--comment-font=icon 'far', 'comments', "#{@tweet.comments.count}"
-
+          
     .comments-contener
       -@comments.each do |comment|
         .comment-contener
@@ -33,6 +33,13 @@
                 =comment.created_at
             .contents-contener__comment
               =comment.comment
+            -if comment.user_id == current_user.id
+              .contents-contener__edits
+                =link_to tweet_comment_path(comment.tweet_id, comment.id), method: :delete, class: "contents-contener__edits--edit" do
+                  =icon 'fas', 'trash-alt'
+                  -# コメント編集機能の実装
+                -# =link_to edit_tweet_comment_path(comment.id), class: "contents-contener__edits--edit" do
+                -#   =icon 'fas', 'trash-alt'
 
   .form-contener
     =form_with model:[@tweet, @comment], local: true do |f|
