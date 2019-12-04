@@ -1,7 +1,6 @@
 class TweetsController < ApplicationController
   before_action :move_to_signup, except: [:index, :show]
   before_action :tweet_find, only: [:show, :edit, :destroy, :update]
-  
   def index
     @tweets = Tweet.order("created_at DESC").limit(10)
     @users = User.order("created_at DESC").limit(10)

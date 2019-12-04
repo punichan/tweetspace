@@ -16,7 +16,19 @@
         -if tweet.image.url
           =link_to (image_tag tweet.image.url, alt: "", class: "image-size"), "#"
         .contents-contener__contents
-          -# =tweet.like
-          .contents-contener__contents--likebtn-font= icon 'far', 'heart'
-          .contents-contener__contents--comment-font=icon 'far', 'comments', "#{tweet.comments.count}"
-            
+          -if user_signed_in?
+            .contents-contener__contents--likebtn-font
+              -if tweet.like_by?(current_user)
+                =link_to tweet_likes_path(tweet.id), method: :delete do
+                  =icon 'far', 'heart'
+                  =tweet.likes.count
+              -else
+                =link_to tweet_likes_path(tweet.id), method: :post do
+                  =icon 'far', 'heart'
+                  =tweet.likes.count
+          -else
+            .contents-contener__contents--likebtn-font
+              =icon 'far', 'heart' 
+              =tweet.likes.count 
+          .contents-contener__contents--comment-font
+            =icon 'far', 'comments', "#{tweet.comments.count}"

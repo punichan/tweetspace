@@ -33,22 +33,22 @@
                 =comment.created_at
             .contents-contener__comment
               =comment.comment
-            -if comment.user_id == current_user.id
+            -if user_signed_in? && comment.user_id == current_user.id
               .contents-contener__edits
                 =link_to tweet_comment_path(comment.tweet_id, comment.id), method: :delete, class: "contents-contener__edits--edit" do
                   =icon 'fas', 'trash-alt'
                   -# コメント編集機能の実装
                 -# =link_to edit_tweet_comment_path(comment.id), class: "contents-contener__edits--edit" do
                 -#   =icon 'fas', 'trash-alt'
-
-  .form-contener
-    =form_with model:[@tweet, @comment], local: true do |f|
-      .field
-        =f.label :comment
-        %br/
-        =f.text_area :comment
-      .actions
-        =f.submit "send", class: "actions__btn"
+  -if user_signed_in?
+    .form-contener
+      =form_with model:[@tweet, @comment], local: true do |f|
+        .field
+          =f.label :comment
+          %br/
+          =f.text_area :comment
+        .actions
+          =f.submit "send", class: "actions__btn"
 
   -if user_signed_in? && current_user.id == @tweet.user_id
     .btn-box

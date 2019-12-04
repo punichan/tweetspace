@@ -78,7 +78,10 @@
             display: flex;
             justify-content: space-between;
 
-            &--icon-font{
+            &--likebtn-font{
+              position: relative;
+              z-index: 3;
+
             }
           }
         }
