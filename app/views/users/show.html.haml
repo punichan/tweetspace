@@ -15,7 +15,7 @@
       .user-profile
         =@user.profile
       .user-followbtn
-        =link_to "Follow Me", "#", class: "user-followbtn--size"
+        =link_to "Follow Me", "", class: "user-followbtn--size"
 
     - else
       .user-name
@@ -30,7 +30,12 @@
       .user-profile
         =@user.profile
       .user-followbtn
-        =link_to "Follow Me", "#", class: "user-followbtn--size"
+        -if @user.followed_by?(current_user)
+          =link_to user_relationship_path(@user.id), method: :delete do
+            followed
+        -else
+          =link_to user_relationships_path(@user.id), method: :post do
+            follow  
   -if user_signed_in?
     .btn-box
       =render "shared/tweet_btn"
