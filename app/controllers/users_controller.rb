@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :user_find, only: [:show, :edit, :update]
+  before_action :user_find, only: [:show, :edit, :update, :follows, :followers]
   
   def show
     @user = User.find(params[:id])
@@ -17,6 +17,14 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def follows
+    @follows = @user.followings
+  end
+
+  def followers
+    @followers = @user.followers
+  end
+  
   private
   def user_params
     params.require(:user).permit(:avater, :name, :profile)

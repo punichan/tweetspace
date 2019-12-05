@@ -1,6 +1,7 @@
 .main-contener
   .index-contener
     =render "shared/tweets"
+      
   .user-contener
     -if user_signed_in? && @user.id == current_user.id
       .user-name
@@ -10,18 +11,16 @@
           =link_to edit_user_path(current_user.id), class: "user-name__edit" do
             =icon 'fas', 'tools'
       .user-followbox
-        =link_to "follow", "#", class: "user-followbox__follow"
-        =link_to "follower", "#", class: "user-followbox__follower"
+        =link_to "follow", follows_user_path , class: "user-followbox__follow" 
+        =link_to "follower", followers_user_path, class: "user-followbox__follower"
       .user-profile
         =@user.profile
-      .user-followbtn
-        =link_to "Follow Me", "#", class: "user-followbtn--size"
 
     - else
       .user-name
         =image_tag "#{@user.avater.url}", alt: "", class: "user-name__avater"
         %h2.user-name__name=@user.name
-        -if @user.id == current_user.id
+        -if user_signed_in? && @user.id == current_user.id
           =link_to edit_user_path(@user.id), class: "user-name__edit" do
             =icon 'fas', 'tools'
       .user-followbox
@@ -30,7 +29,13 @@
       .user-profile
         =@user.profile
       .user-followbtn
-        =link_to "Follow Me", "#", class: "user-followbtn--size"
+        -if @user.followed_by?(current_user)
+          =link_to user_relationship_path(@user.id), method: :delete do
+            followed
+        -else
+          =link_to user_relationships_path(@user.id), method: :post do
+            follow  
+
   -if user_signed_in?
     .btn-box
       =render "shared/tweet_btn"
