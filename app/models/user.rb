@@ -3,12 +3,13 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         
+  
+         mount_uploader :avater, AvaterUploader
+
   has_many :tweets
   has_many :comments
   has_many :likes
-  mount_uploader :avater, AvaterUploader
-
+  
   has_many :active_relationships, class_name: "Relationship", foreign_key: :following_id
   has_many :followings, through: :active_relationships, source: :follower
 
