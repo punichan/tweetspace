@@ -207,10 +207,15 @@
     .user-followbox{
       display: flex;
       justify-content: center;
+      align-items: center;
       margin: 1em 0;
+      
       &__follow{
-        margin-right: 1em;
         @include btn(1em,white,5em,3em);
+      }
+      h2{
+        text-align: center;
+        margin: 0 1em 0 1em;
       }
       &__follower{
         @include btn(1em,white,5em,3em);
