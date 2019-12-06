@@ -2,8 +2,8 @@ class UsersController < ApplicationController
   before_action :user_find, only: [:show, :edit, :update, :follows, :followers]
   
   def show
-    @user = User.find(params[:id])
-    @tweets = Tweet.where(user_id: params[:id]).order("created_at DESC")
+    @tweets = @user.tweets.order("created_at DESC").limit(10)
+    @like_tweets = @user.like_tweets.order("created_at DESC").limit(10)
   end
 
   def edit
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   def followers
     @followers = @user.followers
   end
-  
+
   private
   def user_params
     params.require(:user).permit(:avater, :name, :profile)
