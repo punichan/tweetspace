@@ -15,14 +15,10 @@ class TweetsController < ApplicationController
   end
 
   def create
-    if @tweet.user_id == current_user.id
       @tweet = Tweet.new(tweet_params)
       @tweet.user_id = current_user.id
       @tweet.save
-      redirect_to action: :index
-    else
       redirect_to root_path
-    end
   end
 
   def show
@@ -34,12 +30,8 @@ class TweetsController < ApplicationController
   end
 
   def update
-    if @tweet.user_id == current_user.id
       @tweet.update(tweet_params)
       redirect_to root_path
-    else
-      redirect_to root_path
-    end
   end
 
   def destroy
