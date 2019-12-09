@@ -4,6 +4,7 @@ class TweetsController < ApplicationController
   def index
     @tweets = Tweet.order("created_at DESC").limit(10)
     @users = User.order("created_at DESC").limit(10)
+    
   end
 
   def new

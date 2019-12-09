@@ -33,12 +33,20 @@
         }
 
         .avater-contener{
-
+          text-align: center;
+          
           .avater-size{
             margin: 0 1em;
             @include avater;
             position: relative;
             z-index: 3;
+          }
+          .follow{
+            @include font-size(1em,blue);
+            text-decoration: none;
+          }
+          .followed{
+            @include font-size(1em,black);
           }
         }
         .contents-contener{
@@ -82,6 +90,14 @@
               position: relative;
               z-index: 3;
 
+              a{
+                @include font-size(1em,gray);
+                text-decoration: none;
+              }
+              font{
+                @include font-size(1em,red);
+                text-decoration: none;
+              }
             }
           }
         }
@@ -121,7 +137,6 @@
         @include tweet-image;
         position: relative;
         z-index: 1;
-
 
         .avater-contener{
           .avater-size{

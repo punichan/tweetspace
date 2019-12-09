@@ -10,7 +10,7 @@
           .contents-contener__user
             =link_to "#{@tweet.user.name}", "/users/#{@tweet.user_id}", class:"user-name" 
             .daytime
-              =@tweet.created_at
+              =@tweet.created_at.strftime("%Y-%m-%d %H:%M")
           .contents-contener__text
             =@tweet.tweet
           .contents-contener__image

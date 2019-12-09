@@ -25,7 +25,7 @@
               -else
                 =link_to tweet_likes_path(tweet.id), method: :post do
                   =icon 'far', 'heart'
-                  =tweet.likes.count
+                  %font=tweet.likes.count
           -else
             .contents-contener__contents--likebtn-font
               =icon 'far', 'heart' 
