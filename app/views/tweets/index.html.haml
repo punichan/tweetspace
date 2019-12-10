@@ -30,9 +30,9 @@
           =icon 'fas', 'tools'
       .user-followbox
         =link_to "follow", "#", class: "user-followbox__follow"
-        = current_user.followings.count
+        %h2= current_user.followings.count
         =link_to "follower", "#", class: "user-followbox__follower"
-        = current_user.followers.count
+        %h2= current_user.followers.count
       .user-profile
         =current_user.profile
         

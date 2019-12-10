@@ -61,11 +61,14 @@
           =link_to edit_user_path(@user.id), class: "user-name__edit" do
             =icon 'fas', 'tools'
       .user-followbox
-        =link_to "follow", "#", class: "user-followbox__follow"
-        =link_to "follower", "#", class: "user-followbox__follower"
+        =link_to "follow", follows_user_path , class: "user-followbox__follow" 
+        %h2=@user.followings.count
+        =link_to "follower", followers_user_path, class: "user-followbox__follower"
+        %h2=@user.followers.count      
       .user-profile
         =@user.profile
       .user-followbtn
+      
         -if @user.followed_by?(current_user)
           =link_to user_relationship_path(@user.id), method: :delete do
             followed

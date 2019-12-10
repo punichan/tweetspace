@@ -16,6 +16,7 @@
     .tweets-contener{
 
       .tweet-contener{
+        background: rgba(238,238,238,.4);
         padding: 2em;
         margin: 1em;
         display: flex;
@@ -91,11 +92,11 @@
               z-index: 3;
 
               a{
-                @include font-size(1em,gray);
+                @include font-size(1em,red);
                 text-decoration: none;
               }
               font{
-                @include font-size(1em,red);
+                @include font-size(1em,gray);
                 text-decoration: none;
               }
             }
@@ -131,6 +132,7 @@
     .comments-contener{
      
       .comment-contener{
+        background: rgba(238,238,238,.4);/*浮いた時の背景色（なくてもよい）*/
         padding: 2em;
         margin: 1em;
         display: flex;
@@ -196,6 +198,7 @@
     }
   }
   .user-contener{
+    background: rgba(238,238,238,.4);
     margin: 2em 2em 0 2em;
     width: 20em;
     @include tweet-image;
