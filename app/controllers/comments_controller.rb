@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     @comment.tweet_id = params[:tweet_id]
     if@comment.save!
-      redirect_to root_path
+      redirect_to tweet_path(params[:tweet_id])
     else
       redirect_to root_path
     end
@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
-    redirect_to root_path
+    redirect_to tweet_path(params[:tweet_id])
   end
   
 # 編集機能が実装できていない。

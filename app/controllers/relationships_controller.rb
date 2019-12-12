@@ -2,7 +2,7 @@ class RelationshipsController < ApplicationController
   def create
     follow = current_user.active_relationships.new(follower_id: params[:user_id])
     follow.save
-    redirect_to root_path
+    redirect_to user_path(params[:user_id])
   end
 
   def destroy
