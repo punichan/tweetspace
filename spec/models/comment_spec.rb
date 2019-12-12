@@ -18,18 +18,6 @@ describe Comment do
       comment.valid?
       expect(comment.errors[:user_id]).to include("を入力してください")
     end
-
-    it "created_atがなかったら登録できない" do
-      comment = build(:comment, created_at:"")
-      comment.valid?
-      expect(comment.errors[:created_at]).to include("を入力してください")
-    end
-
-    it "user_idがなかったら登録できない" do
-      comment = build(:comment, updated_at:"")
-      comment.valid?
-      expect(comment.errors[:updated_at]).to include("を入力してください")
-    end
   end
 end
 

@@ -13,16 +13,5 @@ describe Like do
       expect(like.errors[:user_id]).to include("を入力してください")
     end
 
-    it "created_atがなかったら登録できない" do
-      like = build(:like, created_at:"")
-      like.valid?
-      expect(like.errors[:created_at]).to include("を入力してください")
-    end
-
-    it "updated_atがなかったら登録できない" do
-      like = build(:like, updated_at:"")
-      like.valid?
-      expect(like.errors[:updated_at]).to include("を入力してください")
-    end
   end
 end
