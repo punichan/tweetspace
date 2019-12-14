@@ -26,8 +26,14 @@ describe TweetsController do
   end
 
   describe 'GET #show' do
+    it "@tweetが期待した値か" do
+      tweet = create(:tweet)
+      get :show, params: {id: tweet}
+      expect(assigns(:tweet)).to eq tweet
+    end
     it "show.hamlに遷移するか"do
-      get :show
+      tweet = create(:tweet)
+      get :show, params: { id: tweet }
       expect(response).to render_template :show
     end
   end
