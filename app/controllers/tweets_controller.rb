@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  # before_action :move_to_signup, except: [:index, :show]
+  before_action :move_to_signup, except: [:index, :show]
   before_action :tweet_find, only: [:show, :edit, :destroy, :update]
   def index
     @tweets = Tweet.order("created_at DESC").limit(10)
@@ -7,12 +7,11 @@ class TweetsController < ApplicationController
   end
 
   def new
-    # if user_signed_in?
+    if user_signed_in?
       @tweet = Tweet.new 
-    # else
-      # redirect_to new_user_session_path
-   
-      # end
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def create
