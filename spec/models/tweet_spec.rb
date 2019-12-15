@@ -4,6 +4,7 @@ RSpec.describe Tweet, type: :model do
     context 'can not save' do
       it "tweetがなかったら登録できない" do
         tweet = build(:tweet, tweet:"")
+        
         tweet.valid?
         expect(tweet.errors[:tweet]).to include("を入力してください")
       end
@@ -16,16 +17,14 @@ RSpec.describe Tweet, type: :model do
 
     context 'can save' do
       it "tweetがあったら登録できる" do
-        tweet = build(:tweet, image:"")
-        
-        tweet.valid?
+        tweet = create(:tweet, image:"")
         expect(tweet).to be_valid
-        binding.pry
       end
       it "tweetとimageがあったら登録できる" do
-        expect(build(:tweet)).to be_valid
+        expect(create(:tweet)).to be_valid
       end
     end
   end
 end
+
 

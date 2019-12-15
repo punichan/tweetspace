@@ -1,7 +1,9 @@
 require 'rails_helper'
-describe TweetsController do
+describe TweetsController , type: :controller do
+  let(:tweet) {create(:tweet)}
+  let(:user) { create(:user) }
   
-  describe 'GET #index' do
+  describe '#index' do
     it "最新10件のツイートを取得できているかどうか" do
       tweets = create_list(:tweet, 10) 
       get :index
@@ -18,14 +20,29 @@ describe TweetsController do
     end
   end
 
-  describe 'GET #new' do
-    it "new.hamlに遷移するか" do
-      get :new
-      expect(response).to render_template :new
+  describe '#new' do
+    context 'log in' do
+      before do
+        login user 
+        get :new
+      end
+      it "new.hamlに遷移するか" do
+        get :new
+        expect(response).to render_template :new
+      end 
+    end
+    context 'not log in' do
+      before do
+        get :new
+      end
+      it "ログイン画面に遷移するのか" do
+        expect(response).to redirect_to(new_user_session_path)
+      end
     end
   end
-
-  describe 'GET #show' do
+  
+  describe '#show' do
+  
     it "@tweetが期待した値か" do
       tweet = create(:tweet)
       get :show, params: {id: tweet}
@@ -38,17 +55,55 @@ describe TweetsController do
     end
   end
 
-  describe 'GET #edit' do
-    it "@tweetが期待した値か" do
-      tweet = create(:tweet)
-      get :edit, params: {id: tweet}
-      expect(assigns(:tweet)).to eq tweet
+  describe '#edit' do
+    context 'log in' do
+      before do
+        login user 
+        get :edit, params: {id: tweet}
+      end
+      it "@tweetが期待した値か" do
+        tweet = create(:tweet)
+        get :edit, params: {id: tweet}
+        expect(assigns(:tweet)).to eq tweet
+      end
+
+      it "edit.hamlに遷移するか" do
+        tweet = create(:tweet)
+        get :edit, params: { id: tweet }
+        expect(response).to render_template :edit
+      end
     end
 
-    it "edit.hamlに遷移するか" do
-      tweet = create(:tweet)
-      get :edit, params: { id: tweet }
-      expect(response).to render_template :edit
+    context 'not log in' do
+      before do
+        get :edit, params: {id: tweet}
+      end
+      it "ログイン画面に遷移するのか" do
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
+  end
+
+  describe '#create' do
+  let(:params){{user_id: user.id, tweet: attributes_for(:tweet)}}
+    context 'log in' do
+      before do
+        login user
+      end
+        context 'can save' do
+          subject{
+            post :create,
+            params: params
+          }
+          it "tweetができたかどうか" do
+            expect{ subject }.to change(Tweet, :count).by(1)
+          end
+        end
+    
+        context 'can not save' do
+        end
+    end
+    context 'not log in' do
     end
   end
 end

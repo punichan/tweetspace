@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :user do
     password = Faker::Internet.password(8)
-    avater                 {"img"}
+    avater                 {Faker::Avatar.image}
     sequence(:name)        {Faker::Name.last_name}
     password               { password }
     password_confirmation  { password }
