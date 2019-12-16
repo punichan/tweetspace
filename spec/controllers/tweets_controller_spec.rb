@@ -98,12 +98,32 @@ describe TweetsController , type: :controller do
           it "tweetができたかどうか" do
             expect{ subject }.to change(Tweet, :count).by(1)
           end
+          it "tweetが投稿できたらMypageに遷移するのか" do
+            subject
+            expect(response).to redirect_to(user_path(user))
+          end
         end
     
         context 'can not save' do
+          let(:invalid_params){{user_id: user.id, tweet: attributes_for(:tweet, tweet: nil, image: nil)}}
+          subject{
+            post :create,
+            params: invalid_params
+          }
+          it "tweetが登録されない" do
+            expect{subject}.not_to change(Tweet, :count)
+          end
+          it "indexに遷移するかどうか" do
+            subject
+            expect(response).to redirect_to(root_path) 
+          end
         end
     end
     context 'not log in' do
+      it 'ログインしていなかったらログイン画面に遷移する' do
+        post :create, params: params
+        expect(response).to redirect_to(new_user_session_path)
+      end
     end
   end
 end
