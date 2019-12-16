@@ -18,18 +18,18 @@ class CommentsController < ApplicationController
     redirect_to tweet_path(params[:tweet_id])
   end
   
-# 編集機能が実装できていない。
-  # def edit
-  # end
+  def edit
+    @tweet = Tweet.find(params[:tweet_id])
+  end
 
-  # def update
-  #   # @comment.user_id == current_user.id
-  #   if @comment.update(comment_params)
-  #     redirect_to root_path
-  #   else
-  #     redirect_to root_path
-  #   end 
-  # end
+  def update
+    @comment.user_id == current_user.id
+    if @comment.update(comment_params)
+      redirect_to tweet_path(params[:tweet_id])
+    else
+      redirect_to root_path
+    end 
+  end
 
   private
 

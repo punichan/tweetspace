@@ -37,9 +37,8 @@
               .contents-contener__edits
                 =link_to tweet_comment_path(comment.tweet_id, comment.id), method: :delete, class: "contents-contener__edits--edit" do
                   =icon 'fas', 'trash-alt'
-                  -# コメント編集機能の実装
-                -# =link_to edit_tweet_comment_path(comment.id), class: "contents-contener__edits--edit" do
-                -#   =icon 'fas', 'trash-alt'
+                =link_to edit_tweet_comment_path(comment.tweet_id, comment.id), class: "contents-contener__edits--edit" do
+                  =icon 'fas', 'pen-square'
   -if user_signed_in?
     .form-contener
       =form_with model:[@tweet, @comment], local: true do |f|
