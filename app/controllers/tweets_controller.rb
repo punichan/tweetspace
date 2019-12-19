@@ -4,7 +4,12 @@ class TweetsController < ApplicationController
   def index
     @tweets = Tweet.order("created_at DESC").limit(10)
     @users = User.order("created_at DESC").limit(10)
-    
+    @tweetss = Tweet.where('tweet LIKE(?)', "%#{params[:keyword]}%")
+    # binding.pry
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def new

@@ -207,55 +207,102 @@
       }
     }
   }
-  .user-contener{
-    background: rgba(238,238,238,.4);
-    margin: 2em 2em 0 2em;
-    width: 20em;
-    @include tweet-image;
+  .second-contener{
+    text-align: center;
 
-    .user-name{
-      display: flex;
+    .user-contener{
+      background: rgba(238,238,238,.4);
+      margin: 2em 2em 4em 2em;
+      padding: 1em 0 1em 0;
+      width: 20em;
+      @include tweet-image;
 
-      &__avater{
-        margin: 0 1em;
-        @include avater;
+      .user-name{
+        display: flex;
+        padding: 1em 0 1em 0;
+
+        &__avater{
+          margin: 0 1em;
+          @include avater;
+        }
+        &__name{
+          margin: auto auto;
+          font-weight: bold;
+          color: black;
+          text-decoration: none;
+        }
+        &__edit{
+          margin: auto auto;
+          color: black
+        }
       }
-      &__name{
-        margin: auto auto;
-        font-weight: bold;
-        color: black;
-        text-decoration: none;
+    
+      .user-followbox{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 1em 0;
+        
+        &__follow{
+          @include btn(1em,white,5em,3em);
+        }
+        h2{
+          text-align: center;
+          margin: 0 1em 0 1em;
+        }
+        &__follower{
+          @include btn(1em,white,5em,3em);
+        }
       }
-      &__edit{
-        margin: auto auto;
-        color: black
+      .user-profile{
+        margin: 0 1em 1em 1em;
       }
-    }
-  
-    .user-followbox{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 1em 0;
-      
-      &__follow{
-        @include btn(1em,white,5em,3em);
-      }
-      h2{
+      .user-followbtn{
         text-align: center;
-        margin: 0 1em 0 1em;
-      }
-      &__follower{
-        @include btn(1em,white,5em,3em);
+        &--size{
+          @include btn(1em,white,6em,4em);
+        }
       }
     }
-    .user-profile{
-      margin: 0 1em 1em 1em;
+  }
+
+  .tweet-search-box{
+    .tweet-search-form{
+      .field{
+
+        .label-title{
+          margin: 2em auto;
+          @include font-size(1em,black);
+        }
+        .search-field{
+          @include textbox-size;
+        }
+      }
+      .actions{
+        .send{ 
+          @include btn(1em,white,4em,2em);
+          margin-bottom: 2em;
+        }
+      }
     }
-    .user-followbtn{
-      text-align: center;
-      &--size{
-        @include btn(1em,white,6em,4em);
+  }
+
+  .user-search-box{
+    .user-search-form{
+      .field{
+        .label-title{
+          margin: 2em auto;
+          @include font-size(1em,black);
+        }
+        .search-field{
+          @include textbox-size;
+        }
+      }
+      .actions{
+        .send{
+          @include btn(1em,white,4em,2em);
+          margin-bottom: 2em;
+        }
       }
     }
   }
