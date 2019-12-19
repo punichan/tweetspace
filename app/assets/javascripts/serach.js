@@ -33,26 +33,39 @@ window.onload = function(){
     </li>`
     $(".tweets-contener").append(html);
   }
+  function noContent(){
+    var html =
+    `<li class="tweet-contener">
+      NO Search Result 
+    </li>`
+    $(".tweets-contener").append(html);
+  }
 
   $("#tweet").on("keyup",function(){
     var input = $(this).val();
-    console.log(this)
 
-    $.ajax({
-      url:      '/',
-      type:     'GET',
-      data:     {keyword: input},
-      dataType: 'json'
-    })
+    if(input !== ""){
+      $.ajax({
+        url:      '/',
+        type:     'GET',
+        data:     {keyword: input},
+        dataType: 'json'
+      })
 
-    .done(function(tweetss){
-      console.log(tweetss)
-      $(".tweets-contener").empty();
-      if(tweetss.length !==0){
-        tweetss.forEach(function(tweet){
-          appendTweet(tweet);
-        })
-      }
-    })
+      .done(function(tweetss){
+        $(".tweets-contener").empty();
+        if(tweetss.length !==0){
+          tweetss.forEach(function(tweet){
+            appendTweet(tweet);
+          })
+        }
+        if(tweetss.length === 0){
+          noContent();
+        }
+      })
+      .fail(function(){
+        alert('検索に失敗しました')
+      })
+    }
   })
 }
