@@ -1,6 +1,7 @@
 window.onload = function(){
 
   function appendTweet(tweet){
+    var img = tweet.image.url? `<a href="#"><img alt="" class="image-size" src="${tweet.image.url}"></a>`: "";
     var html =
     `<li class="tweet-contener">
       <a class="link-btn" href="/tweets/${tweet.id}"></a>
@@ -18,6 +19,7 @@ window.onload = function(){
             ${tweet.tweet}
           </div>
         <div class="contents-contener__image"></div>
+        ${img}
         <div class="contents-contener__contents">
           <div class="contents-contener__contents--likebtn-font">
             <a rel="nofollow" data-method="delete" href="/tweets/${tweet.id}/likes"><i class="far fa-heart"></i>
@@ -43,7 +45,7 @@ window.onload = function(){
 
   $("#tweet").on("keyup",function(){
     var input = $(this).val();
-
+    console.log("tweet")
     if(input !== ""){
       $.ajax({
         url:      '/',
@@ -57,6 +59,7 @@ window.onload = function(){
         if(tweetss.length !==0){
           tweetss.forEach(function(tweet){
             appendTweet(tweet);
+            console.log(tweet)
           })
         }
         if(tweetss.length === 0){

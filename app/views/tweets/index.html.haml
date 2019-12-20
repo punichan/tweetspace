@@ -4,9 +4,9 @@
     =render "shared/tweets" 
 
     %h2 Latest Users profile
-    .users-contener
+    .index-users-contener
       -@users.each do |user|
-        .tweet-contener
+        .user-contener
           .avater-contener
             =link_to (image_tag "#{user.avater.url}", alt: "", class: "avater-size"),  "/users/#{user.id}" 
             .avater-contener__btn
@@ -48,14 +48,14 @@
         .actions
           =f.submit "search", class: "send"
 
-    .user-search-box
-      =form_with model: @user, class: "user-search-form", local: true do |f|
-        .field
-          =f.label :UserSearch, class: "label-title"
-          %br/
-          =f.text_field :name, class: "search-field"
-        .actions
-          =f.submit "search", class: "send"
+    -# .user-search-box
+    -#   =form_with model: @user, class: "user-search-form", local: true do |f|
+    -#     .field
+    -#       =f.label :UserSearch, class: "label-title"
+    -#       %br/
+    -#       =f.text_field :name, class: "search-field"
+    -#     .actions
+    -#       =f.submit "search", class: "send"
 
   -if user_signed_in?
     .btn-box
