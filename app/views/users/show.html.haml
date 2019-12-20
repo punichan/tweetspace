@@ -72,38 +72,38 @@
                   =tweet.likes.count 
               .contents-contener__contents--comment-font
                 =icon 'far', 'comments', "#{tweet.comments.count}"
+  .second-contener
+    .user-contener
+      -if user_signed_in? && @user.id == current_user.id
+        .user-name
+          =image_tag "#{current_user.avater.url}", alt: "", class: "user-name__avater"
+          %h2.user-name__name=current_user.name
+          -if @user.id == current_user.id
+            =link_to edit_user_path(current_user.id), class: "user-name__edit" do
+              =icon 'fas', 'tools'
+        .user-followbox
+          =link_to "follow", follows_user_path , class: "user-followbox__follow" 
+          %h2=@user.followings.count
+          =link_to "follower", followers_user_path, class: "user-followbox__follower"
+          %h2=@user.followers.count
+        .user-profile
+          =@user.profile
 
-  .user-contener
-    -if user_signed_in? && @user.id == current_user.id
-      .user-name
-        =image_tag "#{current_user.avater.url}", alt: "", class: "user-name__avater"
-        %h2.user-name__name=current_user.name
-        -if @user.id == current_user.id
-          =link_to edit_user_path(current_user.id), class: "user-name__edit" do
-            =icon 'fas', 'tools'
-      .user-followbox
-        =link_to "follow", follows_user_path , class: "user-followbox__follow" 
-        %h2=@user.followings.count
-        =link_to "follower", followers_user_path, class: "user-followbox__follower"
-        %h2=@user.followers.count
-      .user-profile
-        =@user.profile
-
-    - else
-      .user-name
-        =image_tag "#{@user.avater.url}", alt: "", class: "user-name__avater"
-        %h2.user-name__name=@user.name
-        -if user_signed_in? && @user.id == current_user.id
-          =link_to edit_user_path(@user.id), class: "user-name__edit" do
-            =icon 'fas', 'tools'
-      .user-followbox
-        =link_to "follow", follows_user_path , class: "user-followbox__follow" 
-        %h2=@user.followings.count
-        =link_to "follower", followers_user_path, class: "user-followbox__follower"
-        %h2=@user.followers.count      
-      .user-profile
-        =@user.profile
-      .user-followbtn
+      - else
+        .user-name
+          =image_tag "#{@user.avater.url}", alt: "", class: "user-name__avater"
+          %h2.user-name__name=@user.name
+          -if user_signed_in? && @user.id == current_user.id
+            =link_to edit_user_path(@user.id), class: "user-name__edit" do
+              =icon 'fas', 'tools'
+        .user-followbox
+          =link_to "follow", follows_user_path , class: "user-followbox__follow" 
+          %h2=@user.followings.count
+          =link_to "follower", followers_user_path, class: "user-followbox__follower"
+          %h2=@user.followers.count      
+        .user-profile
+          =@user.profile
+        .user-followbtn
       
         -if @user.followed_by?(current_user)
           =link_to user_relationship_path(@user.id), method: :delete do

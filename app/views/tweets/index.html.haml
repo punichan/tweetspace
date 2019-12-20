@@ -4,9 +4,9 @@
     =render "shared/tweets" 
 
     %h2 Latest Users profile
-    .tweets-contener
+    .index-users-contener
       -@users.each do |user|
-        .tweet-contener
+        .user-contener
           .avater-contener
             =link_to (image_tag "#{user.avater.url}", alt: "", class: "avater-size"),  "/users/#{user.id}" 
             .avater-contener__btn
@@ -21,21 +21,42 @@
               =link_to "#{user.name}", "/users/#{user.id}", class:"user-name" 
             .contents-contener__text
               =user.profile
-  -if user_signed_in?
-    .user-contener
-      .user-name
-        =image_tag "#{current_user.avater.url}", alt: "", class: "user-name__avater"
-        %h2.user-name__name=current_user.name
-        =link_to edit_user_path(current_user.id), class: "user-name__edit" do
-          =icon 'fas', 'tools'
-      .user-followbox
-        =link_to "follow", "#", class: "user-followbox__follow"
-        %h2= current_user.followings.count
-        =link_to "follower", "#", class: "user-followbox__follower"
-        %h2= current_user.followers.count
-      .user-profile
-        =current_user.profile
+            
+  .second-contener
+    -if user_signed_in?
+      .user-contener
+        .user-name
+          =image_tag "#{current_user.avater.url}", alt: "", class: "user-name__avater"
+          %h2.user-name__name=current_user.name
+          =link_to edit_user_path(current_user.id), class: "user-name__edit" do
+            =icon 'fas', 'tools'
+        .user-followbox
+          =link_to "follow", "#", class: "user-followbox__follow"
+          %h2= current_user.followings.count
+          =link_to "follower", "#", class: "user-followbox__follower"
+          %h2= current_user.followers.count
+        .user-profile
+          =current_user.profile
         
+    .tweet-search-box
+      =form_with model: @tweet, class: "tweet-search-form", local: true do |f|
+        .field
+          =f.label :TweetSearch, class: "label-title"
+          %br/
+          = f.text_field :tweet, class: "search-field"
+          
+        .actions
+          =f.submit "search", class: "send"
+
+    -# .user-search-box
+    -#   =form_with model: @user, class: "user-search-form", local: true do |f|
+    -#     .field
+    -#       =f.label :UserSearch, class: "label-title"
+    -#       %br/
+    -#       =f.text_field :name, class: "search-field"
+    -#     .actions
+    -#       =f.submit "search", class: "send"
+
   -if user_signed_in?
     .btn-box
       =render "shared/tweet_btn"
