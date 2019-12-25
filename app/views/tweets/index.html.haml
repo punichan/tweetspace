@@ -1,62 +1,128 @@
 .main-contener
-  .index-contener
-    %h2 Latest Tweets of Everyone
-    =render "shared/tweets" 
+  .food-contener 
+    %ul.tweets-list
+      %li.tweet-post
+        .user-section
+          .user-section__detail
+            =link_to (image_tag "https://www.okayama-kanko.jp/image/rendering/feature_page_image/523/trim.1200/1200/800?v=649340bf2f25fb08d035fe5156e35e6df53fe0d2",class: "user-section__detail--size"), "#"
+            .user-section__detail--font username
+          .user-section__follow-btn
+            =link_to "follow", "#", class: "user-section__follow-btn--size"
+        .img-section
+          =link_to (image_tag "https://www.okayama-kanko.jp/image/rendering/feature_page_image/523/trim.1200/1200/800?v=649340bf2f25fb08d035fe5156e35e6df53fe0d2", class: "img-section__img")
+        .detail-section
+          .category-area
+            .category-area--kind ラーメン
+            .category-area--place 梅田
+          .contents-area
+            =icon 'far', 'heart', class: "contents-area__like"
+          .store-area
+            %p 一風堂
+            %p 梅田
+          .food-area
+            %p 赤鬼ラーメン
+            %p 980円
+          .tweet-area
+            %p ここのお好み焼き美味しい！
+      %li.tweet-post
+        .user-section
+          .user-section__detail
+            =link_to (image_tag "https://www.okayama-kanko.jp/image/rendering/feature_page_image/523/trim.1200/1200/800?v=649340bf2f25fb08d035fe5156e35e6df53fe0d2",class: "user-section__detail--size"), "#"
+            .user-section__detail--font username
+          .user-section__follow-btn
+            =link_to "follow", "#", class: "user-section__follow-btn--size"
+        .img-section
+          =link_to (image_tag "https://www.okayama-kanko.jp/image/rendering/feature_page_image/523/trim.1200/1200/800?v=649340bf2f25fb08d035fe5156e35e6df53fe0d2", class: "img-section__img")
+        .detail-section
+          .contents-area
+            =icon 'far', 'heart', class: "contents-area__like"
+          .store-area
+            %p 風月
+            %p 梅田
+          .food-area
+            %p お好み焼き
+            %p 980円
+          .tweet-area
+            %p ここのお好み焼き美味しい！
+      %li.tweet-post
+        .user-section
+          .user-section__detail
+            =link_to (image_tag "https://www.okayama-kanko.jp/image/rendering/feature_page_image/523/trim.1200/1200/800?v=649340bf2f25fb08d035fe5156e35e6df53fe0d2",class: "user-section__detail--size"), "#"
+            .user-section__detail--font username
+          .user-section__follow-btn
+            =link_to "follow", "#", class: "user-section__follow-btn--size"
+        .img-section
+          =link_to (image_tag "https://www.okayama-kanko.jp/image/rendering/feature_page_image/523/trim.1200/1200/800?v=649340bf2f25fb08d035fe5156e35e6df53fe0d2", class: "img-section__img")
+        .detail-section
+          .contents-area
+            =icon 'far', 'heart', class: "contents-area__like"
+          .store-area
+            %p 風月
+            %p 梅田
+          .food-area
+            %p お好み焼き
+            %p 980円
+          .tweet-area
+            %p ここのお好み焼き美味しい！
 
-    %h2 Latest Users profile
-    .index-users-contener
-      -@users.each do |user|
-        .user-contener
-          .avater-contener
-            =link_to (image_tag "#{user.avater.url}", alt: "", class: "avater-size"),  "/users/#{user.id}" 
-            .avater-contener__btn
-            -if user_signed_in? && user.id != current_user.id
-              -if user.followed_by?(current_user)
-                .followed followed
-              -else
-                =link_to user_relationships_path(user.id), class: "follow", method: :post do
-                  follow
-          .contents-contener
-            .contents-contener__user
-              =link_to "#{user.name}", "/users/#{user.id}", class:"user-name" 
-            .contents-contener__text
-              =user.profile
+  -# .index-contener
+  -#   %h2 Latest Tweets of Everyone
+  -#   =render "shared/tweets" 
+
+  -#   %h2 Latest Users profile
+  -#   .index-users-contener
+  -#     -@users.each do |user|
+  -#       .user-contener
+  -#         .avater-contener
+  -#           =link_to (image_tag "#{user.avater.url}", alt: "", class: "avater-size"),  "/users/#{user.id}" 
+  -#           .avater-contener__btn
+  -#           -if user_signed_in? && user.id != current_user.id
+  -#             -if user.followed_by?(current_user)
+  -#               .followed followed
+  -#             -else
+  -#               =link_to user_relationships_path(user.id), class: "follow", method: :post do
+  -#                 follow
+  -#         .contents-contener
+  -#           .contents-contener__user
+  -#             =link_to "#{user.name}", "/users/#{user.id}", class:"user-name" 
+  -#           .contents-contener__text
+  -#             =user.profile
             
-  .second-contener
-    -if user_signed_in?
-      .user-contener
-        .user-name
-          =image_tag "#{current_user.avater.url}", alt: "", class: "user-name__avater"
-          %h2.user-name__name=current_user.name
-          =link_to edit_user_path(current_user.id), class: "user-name__edit" do
-            =icon 'fas', 'tools'
-        .user-followbox
-          =link_to "follow", "#", class: "user-followbox__follow"
-          %h2= current_user.followings.count
-          =link_to "follower", "#", class: "user-followbox__follower"
-          %h2= current_user.followers.count
-        .user-profile
-          =current_user.profile
+  -# .second-contener
+  -#   -if user_signed_in?
+  -#     .user-contener
+  -#       .user-name
+  -#         =image_tag "#{current_user.avater.url}", alt: "", class: "user-name__avater"
+  -#         %h2.user-name__name=current_user.name
+  -#         =link_to edit_user_path(current_user.id), class: "user-name__edit" do
+  -#           =icon 'fas', 'tools'
+  -#       .user-followbox
+  -#         =link_to "follow", "#", class: "user-followbox__follow"
+  -#         %h2= current_user.followings.count
+  -#         =link_to "follower", "#", class: "user-followbox__follower"
+  -#         %h2= current_user.followers.count
+  -#       .user-profile
+  -#         =current_user.profile
         
-    .tweet-search-box
-      =form_with model: @tweet, class: "tweet-search-form", local: true do |f|
-        .field
-          =f.label :TweetSearch, class: "label-title"
-          %br/
-          = f.text_field :tweet, class: "search-field"
+  -#   .tweet-search-box
+  -#     =form_with model: @tweet, class: "tweet-search-form", local: true do |f|
+  -#       .field
+  -#         =f.label :TweetSearch, class: "label-title"
+  -#         %br/
+  -#         = f.text_field :tweet, class: "search-field"
           
-        .actions
-          =f.submit "search", class: "send"
+  -#       .actions
+  -#         =f.submit "search", class: "send"
 
-    -# .user-search-box
-    -#   =form_with model: @user, class: "user-search-form", local: true do |f|
-    -#     .field
-    -#       =f.label :UserSearch, class: "label-title"
-    -#       %br/
-    -#       =f.text_field :name, class: "search-field"
-    -#     .actions
-    -#       =f.submit "search", class: "send"
+  -#   -# .user-search-box
+  -#   -#   =form_with model: @user, class: "user-search-form", local: true do |f|
+  -#   -#     .field
+  -#   -#       =f.label :UserSearch, class: "label-title"
+  -#   -#       %br/
+  -#   -#       =f.text_field :name, class: "search-field"
+  -#   -#     .actions
+  -#   -#       =f.submit "search", class: "send"
 
-  -if user_signed_in?
-    .btn-box
-      =render "shared/tweet_btn"
+  -# -if user_signed_in?
+  -#   .btn-box
+  -#     =render "shared/tweet_btn"
