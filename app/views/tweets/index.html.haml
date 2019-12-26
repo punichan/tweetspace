@@ -11,14 +11,18 @@
         .img-section
           =link_to (image_tag "https://www.okayama-kanko.jp/image/rendering/feature_page_image/523/trim.1200/1200/800?v=649340bf2f25fb08d035fe5156e35e6df53fe0d2", class: "img-section__img")
         .detail-section
-          .category-area
-            .category-area--kind ラーメン
-            .category-area--place 梅田
           .contents-area
-            =icon 'far', 'heart', class: "contents-area__like"
-          .store-area
-            %p 一風堂
-            %p 梅田
+            .contents-area__mark
+              =icon 'far', 'heart', class: "contents-area__mark--heart"
+              =icon 'far', 'bookmark', class: "contents-area__mark--bookmark"
+            .contents-area__date 
+              .contents-area__date--font 12月26日
+          .category-area
+            .category-area__store
+              .category-area__store--font 一風堂
+            .category-area__btn
+              .category-area__btn--kind ラーメン
+              .category-area__btn--place 梅田
           .food-area
             %p 赤鬼ラーメン
             %p 980円

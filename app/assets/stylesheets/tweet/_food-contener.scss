@@ -1,5 +1,5 @@
 .food-contener{
-margin: 0 auto;
+  margin: 0 auto;
 }
 
 .tweets-list{
@@ -14,6 +14,8 @@ margin: 0 auto;
   box-shadow: 5px 2px 2px gray;
   transition: .2s;
 }
+
+
 .tweet-post:hover{
   box-shadow: 10px 5px 5px gray;
   transform: translateY(-10px);
@@ -53,52 +55,90 @@ margin: 0 auto;
       transform: translateY(-10px);
     }
   }
-  
 }
 
 .img-section{
-  margin: 1rem 1rem 0 1rem;
   &__img{
-    width:  350px;
+    width:  330px;
     height: 250px;
-    box-shadow: 0px 6px 6px gray;
+    
   }
 }
-.detail-section{
-  margin: 1rem;
 
-  .category-area{
+.detail-section{
+  margin-top: 1rem;
+}
+.contents-area{
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+
+  &__mark{
+    display: flex;
+    
+    &--heart{
+      font-size: 2rem;
+      margin-right: 1rem;
+      border-radius: 50% 50%;
+    }
+    &--heart:hover{
+      box-shadow: 10px 5px 5px gray;
+      transform: translateY(-2px);
+    }
+    &--bookmark{
+      font-size: 2rem;
+    }
+    &--bookmark:hover{
+      box-shadow: 10px 5px 5px gray;
+      transform: translateY(-2px);
+    }
+  }
+  
+  &__date{
+    font-size: 0.8rem;
+  }
+}
+.category-area{
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+
+  &__store{
+
+    &--font{
+      font-weight: bold;
+    }
+  }
+  .category-area__btn{
     display: flex;
 
     &--kind{
-      margin-right: 2rem;
+      margin-right: 1rem;
       padding: 0.2rem 0.2rem;
       background: darksalmon;
       border-radius: 10% 10% 10% 10%;
       box-shadow: 5px 2px 2px gray;
       transform: .2s;
     }
+    &--kind:hover{
+      box-shadow: 10px 5px 5px gray;
+      transform: translateY(-2px);
+    }
     &--place{
+      padding: 0.2rem 0.2rem;
       background: darkseagreen;
-      border-radius: 0 0 5% 5%;
+      border-radius: 10% 10% 10% 10%;
       box-shadow: 5px 2px 2px gray;
       transform: .2s;
     }
-  }
-  .contents-area{
-    &__like{}
-  }
-  .store-area{
-    display: flex;
-    #p{
-    
+    &--place:hover{
+      box-shadow: 10px 5px 5px gray;
+      transform: translateY(-2px);
     }
   }
-  .food-area{
-    display: flex;
-    #p{}
-  }
-  .tweet-area{
-    #p{}
-  }
+}
+.food-area{
+}
+.tweet-area{
+  font-size: 1.2rem;
 }

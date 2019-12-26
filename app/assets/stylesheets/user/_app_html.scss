@@ -1,36 +1,109 @@
 @import 'mixin/mixin';
 
 .header{
+  padding: 0 2rem 2rem 2rem ;
+  margin-bottom: 2rem;
   display: flex;
   justify-content: space-between;
-  position: relative;
 
   &__title{
-    margin: 0 auto;
     
-    &__text{
-    font-size: 40px;
-    text-shadow: 3px 2px 2px silver;
-    font-weight: bold;
+    &--font{
+    font-size: 4rem;
     text-decoration: none;
     color: black;
     }
   }
 
   &__button{
-    position: absolute;
-    right: 1em;
-    top: 1em;
-    margin: auto 0 ;
 
-    &__signin{
-      margin-right: 1em;
-      @include btn(1em,white,5em,3em);
+    &--place{
+      margin-right: 2rem;
+      color: black;
+      background: lightskyblue;
+      padding: 2rem 1rem 1rem 1rem;
+      text-decoration: none;
+      border-radius: 0 0 5% 5%;
+      box-shadow: 5px 2px 2px gray;
+      transform: .2s;
     }
+    &--place:hover{
+      box-shadow: 10px 5px 5px gray;
+      transform: translateY(-10px);
+    }
+    &--category{
+      margin-right: 2rem;
+      color: black;
+      backgroun: palegreen;
+      padding: 2rem 1rem 1rem 1rem;
+      text-decoration: none;
+      border-radius: 0 0 5% 5%;
+      box-shadow: 5px 2px 2px gray;
+      transform: .2s;
+    }
+    &--category:hover{
+      box-shadow: 10px 5px 5px gray;
+      transform: translateY(-10px);
+    }
+    &--tweet{
+      margin-right: 2rem;
+      color: black;
+      background: navajowhite;
+      padding: 2rem 1rem 1rem 1rem;
+      text-decoration: none;
+      border-radius: 0 0 5% 5%;
+      box-shadow: 5px 2px 2px gray;
+      transform: .2s;
+    }
+    &--tweet:hover{
+      box-shadow: 10px 5px 5px gray;
+      transform: translateY(-10px);
+    }
+    &--blog{
+      color: black;
+      background:lemonchiffon;
+      padding: 2rem 1rem 1rem 1rem;
+      text-decoration: none;
+      border-radius: 0 0 5% 5%;
+      box-shadow: 5px 2px 2px gray;
+      transform: .2s;
+    }
+    &--blog:hover{
+      box-shadow: 10px 5px 5px gray;
+      transform: translateY(-10px);
+    }
+  }
+}
 
-    &__signup{
-      margin-right: 1em;
-      @include btn(1em,white,5em,3em);
+.fotter{
+  background-color: gainsboro;
+  display: flex;
+  padding: 0 2rem ;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+
+  &__title{
+    &--font{
+      font-size: 2rem;
+      text-decoration: none;
+      color: black;
+    }
+  }
+  &__button{
+    &--sign{
+      margin: 2rem;
+      color: black;
+      background: white;
+      padding: 0 1rem 1.5rem 1rem;
+      text-decoration: none;
+      border-radius: 0 0 5% 5%;
+      box-shadow: 5px 2px 2px gray;
+      transform: .2s;
+    }
+    &--sign:hover{
+      box-shadow: 10px 5px 5px gray;
+      transform: translateY(-10px);
     }
   }
 }
