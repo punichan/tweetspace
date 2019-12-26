@@ -37,9 +37,9 @@
     -if user_signed_in?
       .fotter__button
         =link_to destroy_user_session_path, method: :delete, class: "fotter__button--sign" do
-          Log out
+          SIGN OUT
         =link_to "/users/#{current_user.id}", class: "fotter__button--sign" do
-          My page
+          MY PAGE
     -else
       .fotter__button
         =link_to new_user_session_path, class: "fotter__button--sign" do
