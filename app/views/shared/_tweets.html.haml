@@ -1,34 +1,39 @@
--# scssファイルは、/tweet/_index.scssにあります。
+%li.tweet-post
+  =link_to "", "/tweets/#{tweet.id}", class: "link-section"
+  .user-section
+    .user-section__detail
+      =link_to (image_tag "#{tweet.user.avater.url}", class: "user-section__detail--size"), "/users/#{tweet.user_id}"
+      =link_to "#{tweet.user.name}", "/users/#{tweet.user_id}", class: "user-section__detail--font"
+    .user-section__follow-btn
+      =link_to "follow", "#", class: "user-section__follow-btn--size"
+  .img-section
+  -if tweet.image.url
+    =image_tag tweet.image.url, class: "img-section__img"
+  .detail-section
+    .contents-area
+      .contents-area__mark
+        -if tweet.like_by?(current_user)
+          =link_to tweet_likes_path(tweet.id), method: :delete do
+            =icon 'far', 'heart', class: "contents-area__mark--heart"
+        -else
+          =link_to tweet_likes_path(tweet.id), method: :post do
+            =icon 'far', 'heart', class: "contents-area__mark--heart"
+        =icon 'far', 'bookmark', class: "contents-area__mark--bookmark"
+      .contents-area__date 
+        .contents-area__date--font=tweet.created_at.strftime("%m-%d")
+    .category-area
+      .category-area__store
+        .category-area__store--font 一風堂
+      .category-area__btn
+        .category-area__btn--kind ラーメン
+        .category-area__btn--place 梅田
+    .food-area
+      %p 赤鬼ラーメン
+      %p 980円
+    .tweet-area
+      =tweet.tweet
 
-      %li.tweet-post
-        =link_to "","/tweets/#{tweet.id}"
-        .user-section
-          .user-section__detail
-            =link_to (image_tag "#{tweet.user.avater.url}",class: "user-section__detail--size"), "/users/#{tweet.user_id}"
-            =link_to "#{tweet.user.name}", "/users/#{tweet.user_id}", class: "user-section__detail--font"
-          .user-section__follow-btn
-            -# =link_to "follow", "#", class: "user-section__follow-btn--size"
-        .img-section
-        -if tweet.image.url
-          =image_tag tweet.image.url, class: "img-section__img"
-        .detail-section
-          .contents-area
-            .contents-area__mark
-              =icon 'far', 'heart', class: "contents-area__mark--heart"
-              =icon 'far', 'bookmark', class: "contents-area__mark--bookmark"
-            .contents-area__date 
-              .contents-area__date--font=tweet.created_at.strftime("%m-%d")
-          .category-area
-            .category-area__store
-              .category-area__store--font 一風堂
-            .category-area__btn
-              .category-area__btn--kind ラーメン
-              .category-area__btn--place 梅田
-          .food-area
-            %p 赤鬼ラーメン
-            %p 980円
-          .tweet-area
-            =tweet.tweet
+
 -# %ul.tweets-contener
 -#   -@tweets.each do |tweet|
 -#     %li.tweet-contener

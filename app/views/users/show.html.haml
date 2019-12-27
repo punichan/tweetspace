@@ -1,7 +1,7 @@
 .main-contener
   .index-contener
-    %h2 My Tweets
-    =render "shared/tweets"
+    %h2 ・NEW TWEE
+    =render "shared/tweets", collection: @tweets, as: :tweet
 
     %h2 Liked Tweets
     %ul.tweets-contener
