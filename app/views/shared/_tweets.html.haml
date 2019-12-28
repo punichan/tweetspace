@@ -20,7 +20,8 @@
             =icon 'far', 'heart', class: "contents-area__mark--heart"
         =icon 'far', 'bookmark', class: "contents-area__mark--bookmark"
       .contents-area__date 
-        .contents-area__date--font=tweet.created_at.strftime("%m-%d")
+        .contents-area__date--font
+          =tweet.created_at.strftime("%m-%d")
     .category-area
       .category-area__store
         .category-area__store--font 一風堂

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_27_062011) do
+ActiveRecord::Schema.define(version: 2019_12_27_082555) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "comment", null: false
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2019_12_27_062011) do
     t.string "food", null: false
     t.integer "price", null: false
     t.string "store", null: false
+    t.string "image", null: false
     t.index ["user_id"], name: "index_tweets_on_user_id"
   end
 
