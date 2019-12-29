@@ -25,7 +25,8 @@ class TweetsController < ApplicationController
       @tweet = Tweet.new(tweet_params)
       @tweet.user_id = current_user.id
       @tweet.save
-      redirect_to user_path(current_user.id)
+      redirect_to root_path
+      # user_path(current_user.id)
   end
 
   def show

@@ -15,7 +15,7 @@
     .header__title
       =link_to "/", class:"header__title--font" do
         %p OSAKA
-        %P LANCH
+        %P LUNCH
   
     .header__button
       =link_to "#", class: "header__button--place" do
@@ -26,6 +26,9 @@
         TWEET
       =link_to "#", class: "header__button--blog" do
         BLOG
+      -if user_signed_in?
+        =link_to new_tweet_path, class: "header__button--post" do
+          POST TWEET
 
   = yield
   
@@ -33,7 +36,7 @@
     .fotter__title
       =link_to "/", class:"fotter__title--font" do
         %p OSAKA
-        %P LANCH
+        %P LUNCH
     -if user_signed_in?
       .fotter__button
         =link_to destroy_user_session_path, method: :delete, class: "fotter__button--sign" do

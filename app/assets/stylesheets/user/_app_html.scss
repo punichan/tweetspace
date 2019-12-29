@@ -25,7 +25,7 @@
       text-decoration: none;
       border-radius: 0 0 5% 5%;
       box-shadow: 5px 2px 2px gray;
-      transform: .2s;
+      transition: .3s;
     }
     &--place:hover{
       box-shadow: 10px 5px 5px gray;
@@ -34,12 +34,12 @@
     &--category{
       margin-right: 2rem;
       color: black;
-      backgroun: palegreen;
+      background: palegreen;
       padding: 2rem 1rem 1rem 1rem;
       text-decoration: none;
       border-radius: 0 0 5% 5%;
       box-shadow: 5px 2px 2px gray;
-      transform: .2s;
+      transition: .3s;
     }
     &--category:hover{
       box-shadow: 10px 5px 5px gray;
@@ -53,22 +53,36 @@
       text-decoration: none;
       border-radius: 0 0 5% 5%;
       box-shadow: 5px 2px 2px gray;
-      transform: .2s;
+      transition: .3s;
     }
     &--tweet:hover{
       box-shadow: 10px 5px 5px gray;
       transform: translateY(-10px);
     }
     &--blog{
+      margin-right: 2rem;
       color: black;
       background:lemonchiffon;
       padding: 2rem 1rem 1rem 1rem;
       text-decoration: none;
       border-radius: 0 0 5% 5%;
       box-shadow: 5px 2px 2px gray;
-      transform: .2s;
+      transition: .3s;
     }
     &--blog:hover{
+      box-shadow: 10px 5px 5px gray;
+      transform: translateY(-10px);
+    }
+    &--post{
+      color: black;
+      background:lemonchiffon;
+      padding: 2rem 1rem 1rem 1rem;
+      text-decoration: none;
+      border-radius: 0 0 5% 5%;
+      box-shadow: 5px 2px 2px gray;
+      transition: .3s;
+    }
+    &--post:hover{
       box-shadow: 10px 5px 5px gray;
       transform: translateY(-10px);
     }
@@ -92,14 +106,15 @@
   }
   &__button{
     &--sign{
+      font-size: 1.2rem;
       margin: 2rem;
       color: black;
       background: white;
-      padding: 0 1rem 1.5rem 1rem;
+      padding:  0.5rem 1rem 0.5rem;
       text-decoration: none;
       border-radius: 0 0 5% 5%;
       box-shadow: 5px 2px 2px gray;
-      transform: .2s;
+      transition: .3s;
     }
     &--sign:hover{
       box-shadow: 10px 5px 5px gray;
