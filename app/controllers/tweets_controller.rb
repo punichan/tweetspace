@@ -2,7 +2,7 @@ class TweetsController < ApplicationController
   before_action :move_to_signup, except: [:index, :show]
   before_action :tweet_find, only: [:show, :edit, :destroy, :update]
   def index
-    @tweets = Tweet.order("created_at DESC").limit(10)
+    @tweets = Tweet.order("created_at DESC").limit(10).page(page[:page]).per(8)
     @users = User.order("created_at DESC").limit(10)
     
     # @userss = User.where('name LIKE(?)', "%#{params[:keyword]}%")
