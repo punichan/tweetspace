@@ -365,6 +365,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   erb2haml
+  execjs
   factory_bot_rails
   fog-aws
   font-awesome-sass

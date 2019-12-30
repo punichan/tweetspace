@@ -5,9 +5,22 @@
         %p NEW TWEETS 
     %ul.tweets-list
       =render partial: "shared/tweets", collection: @tweets, as: :tweet
+<<<<<<< Updated upstream
     .more-section
       more
 
+=======
+    .page-load-status
+      .infinite-scroll-request
+        | loading!!
+        %br
+        = paginate @tweets
+      %p.infinite-scroll-last
+        | end of contents!!!
+      %p.infinite-scroll-error
+        | this is error message
+    = paginate @tweets
+>>>>>>> Stashed changes
   -# .index-contener
   -#   %h2 Latest Tweets of Everyone
      

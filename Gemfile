@@ -81,4 +81,10 @@ gem 'font-awesome-sass'
 gem 'fog-aws'
 gem 'jquery-rails'
 gem 'websocket-rails'
+<<<<<<< Updated upstream
 gem 'active_hash'
+=======
+gem 'active_hash'
+gem 'kaminari'
+gem 'execjs'
+>>>>>>> Stashed changes
