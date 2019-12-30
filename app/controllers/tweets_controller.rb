@@ -54,7 +54,7 @@ class TweetsController < ApplicationController
   private
   
   def tweet_params
-    params.require(:tweet).permit(:tweet, :image, :user_id)
+    params.require(:tweet).permit(:tweet, :user_id, :place_id, :category_id, :food, :price, :store, :image)
   end
 
   def move_to_signup

@@ -23,14 +23,20 @@
         .contents-area__date--font
           =tweet.created_at.strftime("%m-%d")
     .category-area
-      .category-area__store
-        .category-area__store--font 一風堂
       .category-area__btn
-        .category-area__btn--kind ラーメン
-        .category-area__btn--place 梅田
+        .category-area__btn--kind 
+          =tweet.category.name
+        .category-area__btn--place 
+          =tweet.place.name
+      .category-area__store
+        .category-area__store--font 
+          =tweet.store
     .food-area
-      %p 赤鬼ラーメン
-      %p 980円
+      .food-area__name
+        =tweet.food
+      .food-area__price
+        =tweet.price
+        %span 円
     .tweet-area
       =tweet.tweet
 
