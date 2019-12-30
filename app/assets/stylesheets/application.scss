@@ -1,9 +1,13 @@
 @import './reset';
+@import './mixin';
+@import './variavle';
+
+// 以下を先に記述してしまうと、エラーが発生する。
 @import 'user/users';
 @import 'tweet/tweets';
-@import 'mixin/mixin';
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
 
 html {
   font-size: 62.5%;
