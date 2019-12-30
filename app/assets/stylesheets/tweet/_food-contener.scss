@@ -3,10 +3,7 @@
 }
 .title-contener{
   &__title{
-    border-top: solid black;
-    font-size: 3rem;
-    margin: 0 2rem 0 2rem;
-    padding: 0.2rem 0.2rem;
+    @include heading_size;
   }
 }
 .title-list{
@@ -19,19 +16,18 @@
 }
 
 .tweet-post{
-  background: white;
-  padding: 0.5rem;
-  margin: 1rem 0.5rem 1rem 0.5rem;
-  border-radius: 0 0 5% 5%;
-  box-shadow: 5px 2px 2px gray;
-  transition: .2s;
   position: relative;
+  margin: 1rem 0.5rem 1rem 0.5rem;
+  padding: 0.5rem;
+  width: 32rem;
+  background: white;
+  border-radius: 0 0 5% 5%;
   z-index: 1;
+  @include selector_hover;
 }
 
 .tweet-post:hover{
-  box-shadow: 10px 5px 5px gray;
-  transform: translateY(-10px);
+  @include hover_hover;
 }
 
 .link-section{
@@ -50,43 +46,37 @@
     display: flex;
 
     &--size{
-      @include avater;
       margin-right: 2rem;
-      box-shadow: 5px 2px 2px gray;
-      transition: .3s;
-      position: relative;
-      z-index: 3;
+      width: 5rem;
+      height: 5rem;
+      border-radius: 50%;
+      @include link_front;
+      @include selector_hover;
     }
     &--size:hover{
-      box-shadow: 10px 5px 5px gray;
-      transform: translateY(-3px);
+      @include hover_hover;
     }
     &--font{
-      color: black;
-      font-size: 1.5rem;
       margin: auto 0;
       text-decoration: none;
-      position: relative;
-      z-index: 3;
+      color: black;
+      @include link_front;
     }
   }
   &__follow-btn{
     margin: auto 2rem auto 0;
-    position: relative;
-    z-index: 3;
+    @include link_front;
 
     &--size{
-      color: black;
-      background:palevioletred;
+      color: $defFontcolor;
+      background: $followBtnColor;
       padding: 2rem 1rem 1rem 1rem;
       text-decoration: none;
       border-radius: 0 0 5% 5%;
-      box-shadow: 5px 2px 2px gray;
-      transition: .3s;
+      @include selector_hover;
     }
     &--size:hover{
-      box-shadow: 10px 5px 5px gray;
-      transform: translateY(-10px);
+      @include hover_hover;
     }
   }
 }
@@ -103,8 +93,7 @@
 }
 .contents-area{
   margin-top: 1rem;
-  display: flex;
-  justify-content: space-between;
+  @include display_between;
 
   &__mark{
     display: flex;
@@ -113,21 +102,19 @@
       font-size: 2rem;
       margin-right: 1rem;
       border-radius: 50% 50%;
-      position: relative;
-      z-index: 3;
+      @include link_front;
+      @include selector_hover;
     }
     &--heart:hover{
-      box-shadow: 10px 5px 5px gray;
-      transform: translateY(-2px);
+      @include hover_hover;
     }
     &--bookmark{
       font-size: 2rem;
-      position: relative;
-      z-index: 3;
+      @include link_front;
+      @include selector_hover;
     }
     &--bookmark:hover{
-      box-shadow: 10px 5px 5px gray;
-      transform: translateY(-2px);
+      @include hover_hover;
     }
   }
   
@@ -138,51 +125,49 @@
 
 .category-area{
   margin-top: 1rem;
-  display: flex;
-  justify-content: space-between;
 
+  .category-area__btn{
+    display: flex;
+
+    &--kind{
+      margin-right: 1rem;
+      @include contents_btn($categoryBtnColor);
+      @include link_front;
+      @include selector_hover;
+    }
+    &--kind:hover{
+      @include hover_hover;
+    }
+    &--place{
+      @include contents_btn($placeBtnColor);
+      @include link_front;
+      @include selector_hover;
+    }
+    &--place:hover{
+      @include hover_hover;
+    }
+  }
+  
   &__store{
 
     &--font{
       font-weight: bold;
     }
   }
-  .category-area__btn{
-    display: flex;
-
-    &--kind{
-      margin-right: 1rem;
-      padding: 0.2rem 0.2rem;
-      background: darksalmon;
-      border-radius: 10% 10% 10% 10%;
-      box-shadow: 5px 2px 2px gray;
-      transition: .3s;
-      position: relative;
-      z-index: 3;
-    }
-    &--kind:hover{
-      box-shadow: 10px 5px 5px gray;
-      transform: translateY(-2px);
-    }
-    &--place{
-      padding: 0.2rem 0.2rem;
-      background: darkseagreen;
-      border-radius: 10% 10% 10% 10%;
-      box-shadow: 5px 2px 2px gray;
-      transition: .3s;
-      position: relative;
-      z-index: 3;
-    }
-    &--place:hover{
-      box-shadow: 10px 5px 5px gray;
-      transform: translateY(-2px);
-    }
-  }
 }
 
 .food-area{
-  display: flex;
+  @include display_between;
+
+  &--price{
+    margin-right: 2rem;
+  }
+  
 }
 .tweet-area{
   font-size: 1.2rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  word-wrap:break-word;
 }
