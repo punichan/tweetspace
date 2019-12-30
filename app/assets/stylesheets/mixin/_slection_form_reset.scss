@@ -1,0 +1,10 @@
+@mixin slection_form_reset{
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 2%;
+  cursor: pointer;
+  padding: 0.2rem 0;
+  width: 30%;
+}
