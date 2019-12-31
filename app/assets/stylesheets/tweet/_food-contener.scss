@@ -1,7 +1,8 @@
 .food-contener{
   margin: 0 3rem 0 3rem;
 }
-.title-contener{
+
+.food-title-contener{
   &__title{
     border-top: solid black;
     font-size: 3rem;
@@ -9,13 +10,9 @@
     padding: 0.2rem 0.2rem;
   }
 }
-.title-list{
-  padding: 0.2rem 0.2rem;
-}
 
 .tweets-list{
-  display: flex;
-  flex-wrap:wrap;
+  @include flexbox_wrap;
 }
 
 .tweet-post{
@@ -28,7 +25,6 @@
   position: relative;
   z-index: 1;
 }
-
 .tweet-post:hover{
   box-shadow: 10px 5px 5px gray;
   transform: translateY(-10px);
@@ -43,8 +39,7 @@
   z-index: 2;
 }
 .user-section{
-  display: flex;
-  justify-content: space-between;
+  @include flexbox_between;
 
   &__detail{
     display: flex;
@@ -103,8 +98,12 @@
 }
 .contents-area{
   margin-top: 1rem;
+<<<<<<< Updated upstream
   display: flex;
   justify-content: space-between;
+=======
+  @include flexbox_between;
+>>>>>>> Stashed changes
 
   &__mark{
     display: flex;
@@ -181,8 +180,18 @@
 }
 
 .food-area{
+<<<<<<< Updated upstream
   display: flex;
+=======
+  @include flexbox_between;
+
+  &--price{
+    margin-right: 2rem;
+  }
+  
+>>>>>>> Stashed changes
 }
 .tweet-area{
+  height: 1.7rem;
   font-size: 1.2rem;
 }

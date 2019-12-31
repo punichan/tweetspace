@@ -1,36 +1,27 @@
 .main-contener
   .food-contener
-    .title-contener
-      .title-contener__title
-        %p NEW TWEETS 
+    .food-title-contener
+      .food-title-contener__title
+        %p New Tweets
     %ul.tweets-list
       =render partial: "shared/tweets", collection: @tweets, as: :tweet
+<<<<<<< Updated upstream
     .more-section
       more
 
   -# .index-contener
   -#   %h2 Latest Tweets of Everyone
      
+=======
+>>>>>>> Stashed changes
 
-  -#   %h2 Latest Users profile
-  -#   .index-users-contener
-  -#     -@users.each do |user|
-  -#       .user-contener
-  -#         .avater-contener
-  -#           =link_to (image_tag "#{user.avater.url}", alt: "", class: "avater-size"),  "/users/#{user.id}" 
-  -#           .avater-contener__btn
-  -#           -if user_signed_in? && user.id != current_user.id
-  -#             -if user.followed_by?(current_user)
-  -#               .followed followed
-  -#             -else
-  -#               =link_to user_relationships_path(user.id), class: "follow", method: :post do
-  -#                 follow
-  -#         .contents-contener
-  -#           .contents-contener__user
-  -#             =link_to "#{user.name}", "/users/#{user.id}", class:"user-name" 
-  -#           .contents-contener__text
-  -#             =user.profile
-            
+  .user-contener
+    .user-title-contener
+      .user-title-contener__title
+        %p New Users
+    %ul.users-list
+      =render partial: "shared/users", collection: @users, as: :user
+              
   -# .second-contener
   -#   -if user_signed_in?
   -#     .user-contener

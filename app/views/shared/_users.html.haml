@@ -1,0 +1,17 @@
+%li.user-post
+  =link_to "", user_path(user.id), class: "link-section" 
+  .avater-section
+    .avater-section__avater
+      =link_to (image_tag "#{user.avater.url}", class: "avater-section__avater--size"), user_path(user.id)
+      =link_to "#{user.name}", user_path(user.id), class: "avater-section__name"
+    
+  .profile-section
+    .profile-section__follow
+      -if user_signed_in? && user.id != current_user.id
+        -if user.followed_by?(current_user)
+          followed
+        -else
+          =link_to "follow", user_relationships_path(user.id), class: "profile-section__follow--font", method: :post 
+    .profile-section__text
+      大阪在住。美味しいお店を回るのが趣味でいろんなお店に行っています。一人でもよく食べに行ったりします。時間が合えば、いろんな人と食事がしたいと最近思っています。みなさん仲良くしてください。aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      -# =user.profile

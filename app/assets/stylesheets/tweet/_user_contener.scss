@@ -1,0 +1,82 @@
+.user-contener{
+  margin: 0 3rem 0 3rem;
+}
+
+.user-title-contener{
+  &__title{
+    @include heading_size;
+  }
+}
+
+.users-list{
+  @include flexbox_wrap;
+}
+
+.user-post{
+  display: flex;
+  position: relative;
+  margin: 1rem 0.5rem 1rem 0.5rem;
+  padding: 0.5rem;
+  width: 32rem;
+  background: white;
+  border-radius: 0 0 5% 5%;
+  z-index: 1;
+  @include selector_hover;
+}
+.user-post:hover{
+  @include hover_hover;
+}
+
+// link-sectionは、food-contener.scssにあります。
+
+.avater-section{
+  margin: auto 0;
+  &__avater{
+
+    &--size{
+      margin-right: 2rem;
+      width: 5rem;
+      height: 5rem;
+      border-radius: 50%;
+      @include link_front;
+      @include selector_hover;
+    }
+    &--size:hover{
+      @include hover_hover;
+    }
+  }
+  &__name{
+    display: block;
+    text-decoration: none;
+    color: black;
+    @include link_front;
+  }
+}
+
+.profile-section{
+
+  &__follow{
+    margin: 0 4rem 1rem 15rem;
+    @include link_front;
+    @include selector_hover;
+    
+    &--font{
+    color: $defFontcolor;
+    background: $followBtnColor;
+    padding: 0 1rem 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 0 0 5% 5%;
+    @include selector_hover;
+    }
+  }
+  &__follow:hover{
+    @include hover_hover;
+  }
+
+  &__text{
+    height: 9rem;
+    width: 25rem;
+    font-size: 1.2rem;
+    overflow: hidden;
+  }
+}

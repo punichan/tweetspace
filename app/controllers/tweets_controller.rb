@@ -2,7 +2,11 @@ class TweetsController < ApplicationController
   before_action :move_to_signup, except: [:index, :show]
   before_action :tweet_find, only: [:show, :edit, :destroy, :update]
   def index
+<<<<<<< Updated upstream
     @tweets = Tweet.order("created_at DESC").limit(10)
+=======
+    @tweets = Tweet.order("created_at DESC").page(params[:page]).per(12)
+>>>>>>> Stashed changes
     @users = User.order("created_at DESC").limit(10)
     
     # @userss = User.where('name LIKE(?)', "%#{params[:keyword]}%")
