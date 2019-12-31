@@ -32,20 +32,20 @@
 
   = yield
   
-  -# .fotter
-  -#   .fotter__title
-  -#     =link_to "/", class:"fotter__title--font" do
-  -#       %p OSAKA
-  -#       %P LUNCH
-  -#   -if user_signed_in?
-  -#     .fotter__button
-  -#       =link_to destroy_user_session_path, method: :delete, class: "fotter__button--sign" do
-  -#         SIGN OUT
-  -#       =link_to "/users/#{current_user.id}", class: "fotter__button--sign" do
-  -#         MY PAGE
-  -#   -else
-  -#     .fotter__button
-  -#       =link_to new_user_session_path, class: "fotter__button--sign" do
-  -#         SIGN IN
-  -#       =link_to new_user_registration_path, class: "fotter__button--sign"do
-  -#         SIGN UP
+  .fotter
+    .fotter__title
+      =link_to "/", class:"fotter__title--font" do
+        %p OSAKA
+        %P LUNCH
+    -if user_signed_in?
+      .fotter__button
+        =link_to destroy_user_session_path, method: :delete, class: "fotter__button--sign" do
+          SIGN OUT
+        =link_to "/users/#{current_user.id}", class: "fotter__button--sign" do
+          MY PAGE
+    -else
+      .fotter__button
+        =link_to new_user_session_path, class: "fotter__button--sign" do
+          SIGN IN
+        =link_to new_user_registration_path, class: "fotter__button--sign"do
+          SIGN UP
