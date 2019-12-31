@@ -6,11 +6,11 @@ class TweetsController < ApplicationController
     @users = User.order("created_at DESC").limit(10)
     
     # @userss = User.where('name LIKE(?)', "%#{params[:keyword]}%")
-    @tweetss = Tweet.where('tweet LIKE(?)', "%#{params[:keyword]}%")
-    respond_to do |format|
-      format.html
-      format.json
-    end
+    # @tweetss = Tweet.where('tweet LIKE(?)', "%#{params[:keyword]}%")
+    # respond_to do |format|
+    #   format.html
+    #   format.json
+    # end
   end
 
   def new

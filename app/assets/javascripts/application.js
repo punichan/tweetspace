@@ -16,5 +16,9 @@
 //= require_tree .
 //= require jquery
 //= require jquery_ujs
+//= require infinite-scroll.pkgd.min
 //= require websocket_rails/main
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
