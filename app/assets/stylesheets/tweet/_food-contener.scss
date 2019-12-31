@@ -1,18 +1,15 @@
 .food-contener{
   margin: 0 3rem 0 3rem;
 }
-.title-contener{
+
+.food-title-contener{
   &__title{
     @include heading_size;
   }
 }
-.title-list{
-  padding: 0.2rem 0.2rem;
-}
 
 .tweets-list{
-  display: flex;
-  flex-wrap:wrap;
+  @include flexbox_wrap;
 }
 
 .tweet-post{
@@ -25,7 +22,6 @@
   z-index: 1;
   @include selector_hover;
 }
-
 .tweet-post:hover{
   @include hover_hover;
 }
@@ -39,8 +35,7 @@
   z-index: 2;
 }
 .user-section{
-  display: flex;
-  justify-content: space-between;
+  @include flexbox_between;
 
   &__detail{
     display: flex;
@@ -93,7 +88,7 @@
 }
 .contents-area{
   margin-top: 1rem;
-  @include display_between;
+  @include flexbox_between;
 
   &__mark{
     display: flex;
@@ -157,14 +152,14 @@
 }
 
 .food-area{
-  @include display_between;
+  @include flexbox_between;
 
   &--price{
     margin-right: 2rem;
   }
-  
 }
 .tweet-area{
+  height: 1.7rem;
   font-size: 1.2rem;
   text-overflow: ellipsis;
   overflow: hidden;
