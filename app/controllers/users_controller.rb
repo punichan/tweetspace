@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def show
     @tweets = @user.tweets.order("created_at DESC").limit(10)
     @like_tweets = @user.like_tweets.order("created_at DESC").limit(10)
-    @followstweets = Tweet.where(user_id: @follows.ids)
+    @followsTws = Tweet.where(user_id: @follows.ids)
   end
 
   def edit

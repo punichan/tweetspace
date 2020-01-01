@@ -1,9 +1,11 @@
 FactoryBot.define do
   factory :user do
-    avater                 {"img"}
-    name                   {"test"}
-    email                  {"test@test"}
-    password               {"testtest"}
-    password_confirmation  {"testtest"}
+    password = Faker::Internet.password(8)
+    avater                 {Faker::Avatar.image}
+    sequence(:name)        {Faker::Name.last_name}
+    password               { password }
+    password_confirmation  { password }
+    sequence(:email)       {Faker::Internet.email}
+    created_at             {Faker::Time.between(from: DateTime.now - 9, to: DateTime.now) }
   end
 end

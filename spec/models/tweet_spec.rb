@@ -1,29 +1,30 @@
 require 'rails_helper'
-describe Tweet do
+RSpec.describe Tweet, type: :model do
   describe '#create' do
-    it "tweetがなかったら登録できない" do
-      tweet = build(:tweet, tweet:"")
-      tweet.valid?
-      expect(tweet.errors[:tweet]).to include("を入力してください")
+    context 'can not save' do
+      it "tweetがなかったら登録できない" do
+        tweet = build(:tweet, tweet:"")
+        
+        tweet.valid?
+        expect(tweet.errors[:tweet]).to include("を入力してください")
+      end
+      it "user_idがなかったら登録できない" do
+        tweet = build(:tweet, user_id:"")
+        tweet.valid?
+        expect(tweet.errors[:user_id]).to include("を入力してください")
+      end
     end
 
-    it "user_idがなかったら登録できない" do
-      tweet = build(:tweet, user_id:"")
-      tweet.valid?
-      expect(tweet.errors[:user_id]).to include("を入力してください")
-    end
-
-    it "created_atがなかったら登録できない" do
-      tweet = build(:tweet, created_at:"")
-      tweet.valid?
-      expect(tweet.errors[:created_at]).to include("を入力してください")
-    end
-
-    it "user_idがなかったら登録できない" do
-      tweet = build(:tweet, updated_at:"")
-      tweet.valid?
-      expect(tweet.errors[:updated_at]).to include("を入力してください")
+    context 'can save' do
+      it "tweetがあったら登録できる" do
+        tweet = create(:tweet, image:"")
+        expect(tweet).to be_valid
+      end
+      it "tweetとimageがあったら登録できる" do
+        expect(create(:tweet)).to be_valid
+      end
     end
   end
 end
+
 

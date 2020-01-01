@@ -3,7 +3,7 @@ class TweetsController < ApplicationController
   before_action :tweet_find, only: [:show, :edit, :destroy, :update]
   def index
     @tweets = Tweet.order("created_at DESC").page(params[:page]).per(12)
-    @users = User.order("created_at DESC").limit(10)
+    @users = User.order("created_at DESC").limit(12)
     
     # @userss = User.where('name LIKE(?)', "%#{params[:keyword]}%")
     # @tweetss = Tweet.where('tweet LIKE(?)', "%#{params[:keyword]}%")
@@ -22,11 +22,13 @@ class TweetsController < ApplicationController
   end
 
   def create
-      @tweet = Tweet.new(tweet_params)
-      @tweet.user_id = current_user.id
-      @tweet.save
+    @tweet = Tweet.new(tweet_params)
+    @tweet.user_id = current_user.id
+    if @tweet.save
+      redirect_to user_path(current_user.id)
+    else
       redirect_to root_path
-      # user_path(current_user.id)
+    end
   end
 
   def show

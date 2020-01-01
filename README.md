@@ -1,24 +1,16 @@
-# README
+# TweetSpace
+====
+# Overview
+シンプルにつぶやくことができるアプリ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
+・登録すれば、誰でもつぶやくことができる！
+・お気に入りのつぶやきがあれば、お気に入りすることができる！
+・つぶやきに対してコメントもできる！
+・気になるユーザーがいれば、フォローすることができる！
+いたってシンプルなつぶやきアプリ！
 
-Things you may want to cover:
+## Demo
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Author
+punichan
