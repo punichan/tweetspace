@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
   before_action :user_find, only: [:show, :edit, :update, :follows, :followers]
+  before_action :follows_find, only: [:show, :follows]
   
   def show
     @tweets = @user.tweets.order("created_at DESC").limit(10)
     @like_tweets = @user.like_tweets.order("created_at DESC").limit(10)
+    @followsTws = Tweet.where(user_id: @follows.ids)
   end
 
   def edit
@@ -18,7 +20,6 @@ class UsersController < ApplicationController
   end
 
   def follows
-    @follows = @user.followings
   end
 
   def followers
@@ -34,4 +35,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def follows_find
+    @follows = @user.followings
+  end
 end

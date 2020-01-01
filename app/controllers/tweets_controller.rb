@@ -2,8 +2,15 @@ class TweetsController < ApplicationController
   before_action :move_to_signup, except: [:index, :show]
   before_action :tweet_find, only: [:show, :edit, :destroy, :update]
   def index
-    @tweets = Tweet.order("created_at DESC").limit(10)
-    @users = User.order("created_at DESC").limit(10)
+    @tweets = Tweet.order("created_at DESC").page(params[:page]).per(12)
+    @users = User.order("created_at DESC").limit(12)
+    
+    # @userss = User.where('name LIKE(?)', "%#{params[:keyword]}%")
+    # @tweetss = Tweet.where('tweet LIKE(?)', "%#{params[:keyword]}%")
+    # respond_to do |format|
+    #   format.html
+    #   format.json
+    # end
   end
 
   def new
@@ -49,7 +56,7 @@ class TweetsController < ApplicationController
   private
   
   def tweet_params
-    params.require(:tweet).permit(:tweet, :image, :user_id)
+    params.require(:tweet).permit(:tweet, :user_id, :place_id, :category_id, :food, :price, :store, :image)
   end
 
   def move_to_signup

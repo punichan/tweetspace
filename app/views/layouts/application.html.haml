@@ -5,26 +5,47 @@
     %title Tweetspace
     = csrf_meta_tags
     = csp_meta_tag
+    %link{:href => "https://fonts.googleapis.com/css?family=Lato:400,700|Noto+Sans+JP:400,700", :rel => "stylesheet"}/
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    -# %script{:src => "/path/to/infinite-scroll.pkgd.min.js"}
   %body
+
   .header
     .header__title
-      =link_to "/", class:"header__title__text" do
-        TC
-    -if user_signed_in?
-      .header__button
-        =link_to destroy_user_session_path, method: :delete, class: "header__button__signin" do
-          Log out
-        =link_to "/users/#{current_user.id}", class: "header__button__signin" do
-          My page
-    -else
-      .header__button
-        =link_to new_user_session_path, class: "header__button__signin" do
-          Sign in
-        =link_to new_user_registration_path, class: "header__button__signup"do
-          Sign up
-    
-      
-  = yield
+      =link_to "/", class:"header__title--font" do
+        %p OSAKA
+        %P LUNCH
+  
+    .header__button
+      =link_to "#", class: "header__button--place" do
+        PLACE
+      =link_to "#", class: "header__button--category" do
+        CATEGORY
+      =link_to "#", class: "header__button--tweet" do
+        TWEET
+      =link_to "#", class: "header__button--blog" do
+        BLOG
+      -if user_signed_in?
+        =link_to new_tweet_path, class: "header__button--post" do
+          POST TWEET
 
+  = yield
+  
+  .fotter
+    .fotter__title
+      =link_to "/", class:"fotter__title--font" do
+        %p OSAKA
+        %P LUNCH
+    -if user_signed_in?
+      .fotter__button
+        =link_to destroy_user_session_path, method: :delete, class: "fotter__button--sign" do
+          SIGN OUT
+        =link_to "/users/#{current_user.id}", class: "fotter__button--sign" do
+          MY PAGE
+    -else
+      .fotter__button
+        =link_to new_user_session_path, class: "fotter__button--sign" do
+          SIGN IN
+        =link_to new_user_registration_path, class: "fotter__button--sign"do
+          SIGN UP

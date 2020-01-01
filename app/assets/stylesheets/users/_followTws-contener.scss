@@ -1,0 +1,14 @@
+.followTws-contener{
+  margin: 0 3rem 0 3rem;
+}
+
+.followTws-title-contener{
+
+  &__title{
+    @include heading_size;
+  }
+}
+
+.followTws-list{
+  @include flexbox_wrap;
+}

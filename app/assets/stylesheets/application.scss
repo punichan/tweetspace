@@ -1,6 +1,19 @@
 @import './reset';
-@import 'user/users';
-@import 'tweet/tweets';
-@import 'mixin/mixin';
+@import './mixin';
+@import './variavle';
+
+// 以下を先に記述してしまうと、エラーが発生する。
+@import './users';
+@import './tweets';
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6em;
+  font-family: 'Lato', 'Noto Sans JP', '游ゴシック Medium', '游ゴシック体', 'Yu Gothic Medium', YuGothic, 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+}

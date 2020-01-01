@@ -1,0 +1,131 @@
+.form-contener{
+  margin: 0 3rem 0 3rem;
+
+  &__title{
+    @include heading_size;
+  }
+  &__form{
+
+  }
+}
+
+.field{
+  margin: 5rem 0;
+}
+
+label[for="tweet_image"] {
+  padding: 0.5rem 2rem;
+  background-color: $imageBtnColor;
+}
+
+label[for="tweet_food"]{
+  padding: 0.5rem 2.3rem;
+  background: $foodBtnColor;
+}
+#tweet_food{
+  @include text_form_reset;
+  @include selector_hover;
+}
+#tweet_food:hover{
+  @include hover_hover;
+}
+#tweet_food:focus {
+  @include form_focus;
+  @include hover_hover;
+}
+
+label[for="tweet_store"]{
+  padding: 0.5rem 2.1rem;
+  background: $storeBtnColor;
+}
+#tweet_store{
+  @include text_form_reset;
+  @include selector_hover;
+}
+#tweet_store:hover{
+  @include hover_hover;
+}
+#tweet_store:focus {
+  @include form_focus;
+  @include hover_hover;
+}
+
+label[for="tweet_price"]{
+  padding: 0.5rem 2.3rem;
+  background: $priceBtnColor;
+}
+#tweet_price{
+  @include text_form_reset;
+  @include selector_hover;
+}
+#tweet_price:hover{
+  @include hover_hover;
+}
+#tweet_price:focus {
+  @include form_focus;
+  @include hover_hover;
+}
+
+label[for="tweet_place_id"]{
+  padding: 0.5rem 2.3rem;
+  background: $placeBtnColor;
+}
+#tweet_place_id{
+  @include slection_form_reset;
+  @include selector_hover;
+}
+#tweet_place_id:hover{
+  @include hover_hover;
+}
+
+label[for="tweet_category_id"]{
+  padding: 0.5rem 1rem;
+  background: $categoryBtnColor;
+}
+#tweet_category_id{
+  @include slection_form_reset;
+  @include selector_hover;
+}
+#tweet_category_id:hover{
+  @include hover_hover;
+}
+
+label[for="tweet_tweet"]{
+  padding: 0.5rem 2.1rem;
+  background: $tweetBtnColor;
+}
+#tweet_tweet{
+  @include text_form_reset;
+  @include selector_hover;
+}
+#tweet_tweet:hover{
+  @include hover_hover;
+} 
+#tweet_tweet:focus {
+  @include form_focus;
+  @include hover_hover;
+}
+
+.actions{
+  &__send{
+    background-color: $sendBtnColor;
+    padding: 0.5rem 2.1rem;
+    margin-right: 30rem;
+    cursor: pointer;
+    @include selector_hover;
+  }
+  &__send:hover{
+    @include hover_hover;
+  }
+
+  &__back{
+    color: $defFontcolor;
+    background-color: $backBtnColor;
+    padding: 0.5rem 2.1rem;
+    text-decoration: none;
+    @include selector_hover;
+  }
+  &__back:hover{
+    @include hover_hover;
+  }
+}
