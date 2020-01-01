@@ -14,9 +14,9 @@
 
 .tweet-post{
   position: relative;
-  margin: 1rem 0.5rem 1rem 0.5rem;
+  margin: 1rem 0.5rem;
   padding: 0.5rem;
-  width: 32rem;
+  width: 25rem;
   background: white;
   border-radius: 0 0 5% 5%;
   z-index: 1;
@@ -78,8 +78,8 @@
 
 .img-section{
   &__img{
-    width:  32rem;
-    height: 25rem;
+    width:  25rem;
+    height: 20rem;
   }
 }
 
