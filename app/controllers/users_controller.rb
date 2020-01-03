@@ -1,11 +1,16 @@
 class UsersController < ApplicationController
   before_action :user_find, only: [:show, :edit, :update, :follows, :followers]
-  before_action :follows_find, only: [:show, :follows]
+  before_action :follows_find, only: [:show, :follow]
   
+  def search
+    @users = User.order("created_at DESC").page(params[:page]).per(40)
+    
+  end
+
   def show
-    @tweets = @user.tweets.order("created_at DESC").limit(10)
+    @tweets = @user.tweets.order("created_at DESC").limit(50)
     @like_tweets = @user.like_tweets.order("created_at DESC").limit(10)
-    @followsTws = Tweet.where(user_id: @follows.ids)
+    @followsTws = Tweet.where(user_id: @follows.ids).order("created_at DESC").limit(50)
   end
 
   def edit

@@ -1,0 +1,8 @@
+.main-contener
+  .food-contener
+    .food-title-contener
+      .food-title-contener__title
+        %p New Tweets
+    %ul.tweets-list
+      =render partial: "shared/tweets", collection: @tweets, as: :tweet
+    =paginate @tweets
