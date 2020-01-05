@@ -1,10 +1,15 @@
 class TweetsController < ApplicationController
-  before_action :move_to_signup, except: [:index, :show]
+  before_action :move_to_signup, except: [:index, :show, :follows]
   before_action :tweet_find, only: [:show, :edit, :destroy, :update]
-  def index
+ 
+  def top
     @tweets = Tweet.order("created_at DESC").page(params[:page]).per(10)
     @users = User.order("created_at DESC").limit(8)
-    
+  
+  end
+  
+  def index
+    @tweets = Tweet.order("created_at DESC").page(params[:page]).per(50)
     # @userss = User.where('name LIKE(?)', "%#{params[:keyword]}%")
     # @tweetss = Tweet.where('tweet LIKE(?)', "%#{params[:keyword]}%")
     # respond_to do |format|
@@ -13,8 +18,26 @@ class TweetsController < ApplicationController
     # end
   end
 
-  def search
-    @tweets = Tweet.order("created_at DESC").page(params[:page]).per(50)
+  def follows
+    @user = User.find(current_user.id)
+    @follows = @user.followings
+    @FolTws = Tweet.where(user_id: @follows.ids).order("created_at DESC").page(params[:page]).per(10)
+  end
+
+  def likes
+    @user = User.find(current_user.id)
+    @likes = @user.likes
+    # @LikTws =[]
+    # @likes.each do |like|
+    #   @tweet = Tweet.find(like.tweet_id)
+    #   @LikTws << @tweet
+    # end
+    @LikTws = @likes.map{|like| Tweet.find(like.tweet_id)}
+  end
+
+
+  def mytweets
+    @mytweets = Tweet.find(current_user.id).order("created_at DESC").page(params[:page]).per(10)
   end
 
   def new

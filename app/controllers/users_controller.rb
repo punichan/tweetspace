@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :user_find, only: [:show, :edit, :update, :follows, :followers]
   before_action :follows_find, only: [:show, :follow]
   
-  def search
+  def users
     @users = User.order("created_at DESC").page(params[:page]).per(40)
     
   end
