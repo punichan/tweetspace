@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'tweets#index'
+  root to: 'tweets#top'
 
   resources :users do
     collection do
-      get 'search'
     end
-
     resources :relationships, only: [:create, :destroy]
       member do
         get :follows
@@ -16,7 +14,10 @@ Rails.application.routes.draw do
 
   resources :tweets do
     collection do
-      get 'search'
+      get 'follows'
+      get 'likes'
+      get 'mytweets'
+      get 'top'
     end
     
     resources :comments, only: [:create, :edit, :update, :destroy]
