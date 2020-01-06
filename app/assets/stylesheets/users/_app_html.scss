@@ -1,10 +1,13 @@
 
 .header{
-  padding: 0 2rem 2rem 2rem ;
   margin-bottom: 2rem;
+  padding: 0 2rem 2rem 2rem;
   display: flex;
   justify-content: space-between;
+}
 
+.header-left{
+  
   &__title{
     
     &--font{
@@ -13,8 +16,11 @@
     color: black;
     }
   }
+}
 
-  &__button{
+.header-right{
+  &__contents{
+    margin-bottom: 1.5rem;
 
     &--place{
       margin-right: 2rem;
@@ -72,16 +78,52 @@
       box-shadow: 10px 5px 5px gray;
       transform: translateY(-10px);
     }
-    &--post{
+  }
+  &__posts{
+    margin-bottom: 2rem;
+
+    &--tweet{
       color: black;
-      background:lemonchiffon;
-      padding: 2rem 1rem 1rem 1rem;
+      background: navajowhite;
+      padding: 0 1rem 1rem 1rem;
       text-decoration: none;
       border-radius: 0 0 5% 5%;
       box-shadow: 5px 2px 2px gray;
       transition: .3s;
     }
-    &--post:hover{
+    &--tweet:hover{
+      box-shadow: 10px 5px 5px gray;
+      transform: translateY(-10px);
+    }
+  }
+  &__user-contents{
+
+    &--tweets{
+      margin-right: 2rem;
+      color: black;
+      background: navajowhite;
+      padding: 0 1rem 1rem 1rem;
+      text-decoration: none;
+      border-radius: 0 0 5% 5%;
+      box-shadow: 5px 2px 2px gray;
+      transition: .3s;
+    }
+    &--tweets:hover{
+      box-shadow: 10px 5px 5px gray;
+      transform: translateY(-10px);
+    }
+
+    &--page{
+      margin-right: 5rem;
+      color: black;
+      background: red;
+      padding: 0 1rem 1rem 1rem;
+      text-decoration: none;
+      border-radius: 0 0 5% 5%;
+      box-shadow: 5px 2px 2px gray;
+      transition: .3s;
+    }
+    &--page:hover{
       box-shadow: 10px 5px 5px gray;
       transform: translateY(-10px);
     }

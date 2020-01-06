@@ -1,0 +1,8 @@
+.main-contener
+  .user-contener
+    .user-title-contener
+      .user-title-contener__title
+        %p New Users
+    %ul.users-list
+      =render partial: "shared/users", collection: @users, as: :user
+    =paginate @users

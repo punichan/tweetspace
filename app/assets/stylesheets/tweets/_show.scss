@@ -1,0 +1,230 @@
+.DtlFood-contener{
+  margin: 0 3rem 0 3rem;
+}
+
+.DtlFood-title-contener{
+  @include heading_size;
+}
+
+.DtlFood-contents-contener{
+  display: flex;
+  margin: 1rem 0.5rem;
+}
+
+.DtlFood-image-section{
+  
+  &__main{
+    height: 40rem;
+    width:  60rem;
+  }
+}
+
+.DtlFood-detail-section{
+  position: relative;
+  margin-left: 5rem;
+}
+
+.DelEdits-area{
+  text-align:right;
+
+  &--edit{
+    text-decoration: none;
+    margin-right: 1rem;
+    color: $defBtnColor;
+    @include btn_fontsize;
+    @include link_front;
+    @include selector_hover;
+    }
+    &--edit:hover{
+      @include hover_hover;
+    }
+  &--delete{
+    text-decoration: none;
+    margin-right: 1rem;
+    color: $defBtnColor;
+    @include btn_fontsize;
+    @include link_front;
+    @include selector_hover;
+    }
+    &--delete:hover{
+      @include hover_hover;
+    }
+}
+.DelFood-area{
+
+  &__store{
+    margin-bottom: 2rem;
+    font-size: 2rem;
+  }
+  &__name{
+    margin-bottom: 2rem;
+    font-size: 2rem;
+  }
+  &__price{
+    margin-bottom: 2rem;
+    font-size: 2rem;
+
+    .font-size{
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.DelTweet-area{
+  width:  40rem;
+}
+
+.DelContents-area{
+  position: absolute;
+  bottom: 0;
+
+  &__contents{
+    &--heart{
+      text-decoration: none;
+      margin-right: 1rem;
+      color: $likeBtnColor;
+      @include btn_fontsize;
+      @include link_front;
+      @include selector_hover;
+    }
+    &--heart:hover{
+      @include hover_hover;
+    }
+    &--bookmark{
+      text-decoration: none;
+      margin-right: 1rem;
+      color: $defBtnColor;
+      @include btn_fontsize;
+      @include link_front;
+      @include selector_hover;
+    }
+    &--bookmark:hover{
+      @include hover_hover;
+    }
+  }
+}
+
+.DtlFood-CmtTil-contener{
+  margin-bottom: 2rem;
+}
+
+.DtlFood-CmtTil-section{
+  @include heading_size;
+}
+
+.DtlFood-CmtFom-section{
+  margin-bottom: 2rem;
+}
+
+label[for="comment_comment"]{
+  padding: 0.5rem 2.3rem;
+  background: $foodBtnColor;
+}
+#comment_comment{
+  @include text_form_reset;
+  @include selector_hover;
+}
+#comment_comment:hover{
+  @include hover_hover;
+}
+#comment_comment:focus {
+  @include form_focus;
+  @include hover_hover;
+}
+
+.CmtFomAct-area{
+  &__btn{
+    background-color: $sendBtnColor;
+    padding: 0.5rem 2.1rem;
+    margin-right: 30rem;
+    cursor: pointer;
+    @include selector_hover;
+  }
+  &__btn:hover{
+    @include hover_hover;
+  }
+}
+
+.DtlFood-CmtContents-contener{
+
+}
+
+.comments-list{
+  @include flexbox_wrap;
+}
+
+.comment-post{
+  position: relative;
+  margin: 1rem 0.5rem;
+  padding: 0.5rem;
+  width: 25rem;
+  background: white;
+  border-radius: 0 0 5% 5%;
+  z-index: 1;
+  @include selector_hover;
+}
+.comment-post:hover{
+  @include hover_hover;
+}
+
+.DelFoCom-UserSection{
+  @include flexbox_between;
+
+  &__detail{
+    display: flex;
+
+    &--size{
+      margin-right: 2rem;
+      width: 5rem;
+      height: 5rem;
+      border-radius: 50%;
+      @include link_front;
+      @include selector_hover;
+    }
+    &--size:hover{
+      @include hover_hover;
+    }
+    &--font{
+      margin: auto 0;
+      text-decoration: none;
+      color: black;
+      @include link_front;
+    }
+  }
+}
+
+.DelFoCom-TextSection{
+
+  &__comment{
+  height: 10rem;
+  font-size: 1.2rem;
+  overflow: scroll;
+  word-wrap:break-word;
+  }
+
+  &__edits{
+
+    &--delete{
+      text-decoration: none;
+      margin-right: 1rem;
+      color: $defBtnColor;
+      @include btn_fontsize;
+      @include link_front;
+      @include selector_hover;
+    }
+    &--delete:hover{
+      @include hover_hover;
+    }
+    &--edit{
+      text-decoration: none;
+      margin-right: 1rem;
+      color: $defBtnColor;
+      @include btn_fontsize;
+      @include link_front;
+      @include selector_hover;
+    }
+    &--edit:hover{
+      @include hover_hover;
+    }
+  }
+}

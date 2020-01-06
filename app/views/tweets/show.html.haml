@@ -1,55 +1,68 @@
--# scssファイルは、"tweet/_index.scss"にあります。
 .main-contener
-  .index-contener
-    .tweets-contener
-      .tweet-contener
-        =link_to "","/tweets/#{@tweet.id}", class: "link-btn"
-        .avater-contener
-          =link_to (image_tag "#{@tweet.user.avater.url}", alt: "", class: "avater-size"), "/users/#{@tweet.user_id}" 
-        .contents-contener
-          .contents-contener__user
-            =link_to "#{@tweet.user.name}", "/users/#{@tweet.user_id}", class:"user-name" 
-            .daytime
-              =@tweet.created_at.strftime("%Y-%m-%d %H:%M")
-          .contents-contener__text
-            =@tweet.tweet
-          .contents-contener__image
-          -if @tweet.image.url
-            =link_to (image_tag @tweet.image.url, alt: "", class: "image-size"), "#"
-          .contents-contener__contents
-            -# =tweet.like
-            .contents-contener__contents--icon-font= icon 'far', 'heart'
-            .contents-contener__contents--comment-font=icon 'far', 'comments', "#{@tweet.comments.count}"
-          
-    .comments-contener
-      -@comments.each do |comment|
-        .comment-contener
-          .avater-contener
-            =link_to (image_tag "#{comment.user.avater.url}", alt: "", class: "avater-size"), "/users/#{comment.user_id}"
-          .contents-contener
-            .contents-contener__name
-              =link_to "#{comment.user.name}", "/users/#{comment.user_id}", class:"user-name"
-              .daytime
-                =comment.created_at.strftime("%Y-%m-%d %H:%M")
-            .contents-contener__comment
-              =comment.comment
-            -if user_signed_in? && comment.user_id == current_user.id
-              .contents-contener__edits
-                =link_to tweet_comment_path(comment.tweet_id, comment.id), method: :delete, class: "contents-contener__edits--edit" do
-                  =icon 'fas', 'trash-alt'
-                =link_to edit_tweet_comment_path(comment.tweet_id, comment.id), class: "contents-contener__edits--edit" do
-                  =icon 'fas', 'pen-square'
-  -if user_signed_in?
-    .form-contener
-      =form_with model:[@tweet, @comment], local: true do |f|
-        .field
-          =f.label :comment
-          %br/
-          =f.text_area :comment
-        .actions
-          =f.submit "send", class: "actions__btn"
+  .DtlFood-contener
+    .DtlFood-title-contener
+    .DtlFood-contents-contener
+      .DtlFood-image-section
+        .DtlFood-image-section__main
+          =image_tag @tweet.image.url, class: "image-section__main--size" 
+      
+      .DtlFood-detail-section
+        .DelEdits-area
+          =link_to edit_tweet_path, class: "DelEdits-area--edit" do
+            =icon 'fas', 'pen-square'
+          =link_to tweet_path, method: :delete, class: "DelEdits-area--delete" do
+            =icon 'far', 'trash-alt'
+        .DelFood-area
+          .DelFood-area__store
+            =@tweet.store
+          .DelFood-area__name
+            =@tweet.food
+          .DelFood-area__price
+            =@tweet.price
+            %span.font-size 円
+        .DelTweet-area
+          =@tweet.tweet
 
-  -if user_signed_in? && current_user.id == @tweet.user_id
-    .btn-box
-      =render "shared/delete_btn"
-      =render "shared/edit_btn"
+        .DelContents-area
+          .DelContents-area__contents
+            -if user_signed_in? && @tweet.like_by?(current_user)
+              =link_to tweet_likes_path(@tweet.id), class: "DelContents-area__contents--heart", method: :delete do
+                =icon 'far', 'heart'
+            -else
+              =link_to tweet_likes_path(@tweet.id), class: "DelContents-area__contents--heart", method: :post do
+                =icon 'far', 'heart'
+            =icon 'far', 'bookmark', class: "DelContents-area__contents--bookmark"
+
+    .DtlFood-CmtTil-contener
+      .DtlFood-CmtTil-section
+        %p Comment
+    
+    .DtlFood-CmtFom-contener
+      -if user_signed_in?
+        .DtlFood-CmtFom-section
+          =form_with model:[@tweet, @comment], local: true do |f|
+            .CmtFomField-area
+              =f.label :comment
+              =f.text_area :comment, rows: "5", cols: "50"
+            .CmtFomAct-area
+              =f.submit "send", class: "CmtFomAct-area__btn"
+
+    .DtlFood-CmtContents-contener
+      %ul.comments-list
+        -@comments.each do |comment|
+          %li.comment-post
+            .DelFoCom-UserSection
+              .DelFoCom-UserSection__detail
+                =link_to (image_tag "#{comment.user.avater.url}", alt: "", class: "DelFoCom-UserSection__detail--size"), "/users/#{comment.user_id}"
+                =link_to "#{@tweet.user.name}", "/users/#{@tweet.user_id}", class:"DelFoCom-UserSection__detail--font"
+            .DelFoCom-TextSection
+              .DelFoCom-TextSection__comment
+                =comment.comment
+              -if user_signed_in? && comment.user_id == current_user.id
+                .DelFoCom-TextSection__edits
+                  =link_to tweet_comment_path(comment.tweet_id, comment.id), method: :delete, class: "DelFoCom-TextSection__edits--delete" do
+                    =icon 'fas', 'trash-alt'
+                  =link_to edit_tweet_comment_path(comment.tweet_id, comment.id), class: "DelFoCom-TextSection__edits--edit" do
+                    =icon 'fas', 'pen-square'
+
+
