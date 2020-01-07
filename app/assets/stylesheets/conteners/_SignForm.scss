@@ -33,6 +33,22 @@ label[for="user_name"]{
   @include hover_hover;
 }
 
+label[for="user_profile"]{
+  padding: 0.5rem 2.3rem;
+  background: $userFormBtnColor;
+}
+#user_profile{
+  @include text_form_reset;
+  @include selector_hover;
+}
+#user_profile:hover{
+  @include hover_hover;
+}
+#user_profile:focus {
+  @include form_focus;
+  @include hover_hover;
+}
+
 label[for="user_email"]{
   padding: 0.5rem 2.3rem;
   background: $userFormBtnColor;

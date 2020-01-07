@@ -7,6 +7,9 @@
         = f.label :avater
         = f.file_field :avater, autofocus: true, autocomplete: "avater", class: "textfield-size"
       .field
+        =f.label :profile
+        =f.text_area :profile, autofocus: true, rows: 5, cols: 50
+      .field
         = f.label :name
         = f.text_field :name, autofocus: true, autocomplete: "name", class: "textfield-size"
       .field
