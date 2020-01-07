@@ -3,8 +3,7 @@
 @import './variavle';
 
 // 以下を先に記述してしまうと、エラーが発生する。
-@import './users';
-@import './tweets';
+@import './conteners';
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
