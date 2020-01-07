@@ -1,0 +1,106 @@
+.SignForm-contener{
+  margin: 0 3rem 0 3rem;
+}
+
+.SignForm-title-contener{
+
+  h2{@include heading_size;
+  }
+}
+
+.field{
+  margin: 5rem 0;
+}
+
+label[for="user_avater"] {
+  padding: 0.5rem 2rem;
+  background-color: $userFormBtnColor;
+}
+
+label[for="user_name"]{
+  padding: 0.5rem 2.3rem;
+  background: $userFormBtnColor;
+}
+#user_name{
+  @include text_form_reset;
+  @include selector_hover;
+}
+#user_name:hover{
+  @include hover_hover;
+}
+#user_name:focus {
+  @include form_focus;
+  @include hover_hover;
+}
+
+label[for="user_email"]{
+  padding: 0.5rem 2.3rem;
+  background: $userFormBtnColor;
+}
+#user_email{
+  @include text_form_reset;
+  @include selector_hover;
+}
+#user_email:hover{
+  @include hover_hover;
+}
+#user_email:focus {
+  @include form_focus;
+  @include hover_hover;
+}
+
+label[for="user_password"]{
+  padding: 0.5rem 2.3rem;
+  background: $userFormBtnColor;
+}
+#user_password{
+  @include text_form_reset;
+  @include selector_hover;
+}
+#user_password:hover{
+  @include hover_hover;
+}
+#user_password:focus {
+  @include form_focus;
+  @include hover_hover;
+}
+
+label[for="user_password_confirmation"]{
+  padding: 0.5rem 2.3rem;
+  background: $userFormBtnColor;
+}
+#user_password_confirmation{
+  @include text_form_reset;
+  @include selector_hover;
+}
+#user_password_confirmation:hover{
+  @include hover_hover;
+}
+#user_password_confirmation:focus {
+  @include form_focus;
+  @include hover_hover;
+}
+
+.actions{
+  display: flex;
+  &__btn{
+    background-color: $sendBtnColor;
+    padding: 0.5rem 2.1rem;
+    margin-right: 30rem;
+    cursor: pointer;
+    @include selector_hover;
+  }
+  &__btn:hover{
+    @include hover_hover;
+  }
+  &__signbtn{
+    color: $defFontcolor;
+    background-color: $backBtnColor;
+    padding: 0.5rem 2.1rem;
+    text-decoration: none;
+    @include selector_hover;
+  }
+  &__signbtn:hover{
+    @include hover_hover;
+  }
+}
