@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  before_action :move_to_signup, except: [:index, :show, :follows]
+  before_action :move_to_signup, except: [:top, :index, :show, :follows]
   before_action :tweet_find, only: [:show, :edit, :destroy, :update]
  
   def top
