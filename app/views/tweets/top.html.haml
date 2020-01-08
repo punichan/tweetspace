@@ -5,8 +5,8 @@
         %p New Tweets
     %ul.tweets-list
       =render partial: "shared/tweets", collection: @tweets, as: :tweet
-    .food-more-contener
-      =link_to "more", tweets_path
+    .more-contener
+      =link_to "more", tweets_path, class: "more-contener__more"
 
   .user-contener
     .user-title-contener
@@ -14,7 +14,7 @@
         %p New Users
     %ul.users-list
       =render partial: "shared/users", collection: @users, as: :user
-    .user-more-contener
-      =link_to "more", users_path
+    .more-contener
+      =link_to "more", users_path, class: "more-contener__more"
     
   

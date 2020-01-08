@@ -167,3 +167,17 @@
   white-space: nowrap;
   word-wrap:break-word;
 }
+.more-contener{
+  margin: 2rem 0;
+  &__more{
+    padding: 0.5rem 2.1rem;
+    background-color: $backBtnColor;
+    color: $defFontcolor;
+    text-decoration: none;
+    cursor: pointer;
+    @include selector_hover;
+  }
+  &__more:hover{
+    @include hover_hover;
+  }
+}
