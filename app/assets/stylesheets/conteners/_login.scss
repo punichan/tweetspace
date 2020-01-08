@@ -1,0 +1,17 @@
+.login{
+  margin-top: 2rem;
+}
+.login-text{
+  margin: 2rem 0;
+}
+.login-btn{
+  padding: 0.5rem 2.1rem;
+  background-color: $backBtnColor;
+  color: $defFontcolor;
+  text-decoration: none;
+  cursor: pointer;
+  @include selector_hover;
+}
+.login-btn:hover{
+  @include hover_hover;
+}
