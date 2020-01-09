@@ -101,10 +101,9 @@ label[for="user_password_confirmation"]{
   display: flex;
   &__btn{
     background-color: $sendBtnColor;
-    padding: 0.5rem 2.1rem;
     margin-right: 30rem;
-    cursor: pointer;
     @include selector_hover;
+    @include link_to_font;
   }
   &__btn:hover{
     @include hover_hover;
@@ -112,9 +111,8 @@ label[for="user_password_confirmation"]{
   &__signbtn{
     color: $defFontcolor;
     background-color: $backBtnColor;
-    padding: 0.5rem 2.1rem;
-    text-decoration: none;
     @include selector_hover;
+    @include link_to_font;
   }
   &__signbtn:hover{
     @include hover_hover;

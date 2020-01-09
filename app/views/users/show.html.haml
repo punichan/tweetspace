@@ -1,16 +1,5 @@
 .show-contener
-  .Sidebar-contener
-    .Sidebar-user-section
-      .UserAva-area
-        .UserAva-area__detail
-          =link_to (image_tag "#{@user.avater.url}", class: "UserAva-area__detail--size"), user_path(@user.id)
-          =link_to "#{@user.name}", user_path(@user.id), class: "UserAva-area__detail--font"
-        .UserAva-area__follow
-          =link_to "follow", "#", class: "UserAva-area__follow--size"
-      .UserProf-area
-        =@user.profile
-      .UserFolw-area
-        
+  =render "shared/sidebar"
       
   .followTws-contener
     .followTws-title-contener

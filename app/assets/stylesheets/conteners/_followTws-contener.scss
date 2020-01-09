@@ -1,63 +1,6 @@
 .show-contener{
   display: flex;
 }
-.Sidebar-contener{
-  margin: 0 0 0 1rem;
-  padding-right: 2rem;
-  border-right: solid black;
-  width: 25rem;
-}
-
-.Sidebar-user-section{
-  
-}
-
-.UserAva-area{
-  @include flexbox_between;
-
-  &__detail{
-    display: flex;
-
-    &--size{
-      margin-right: 2rem;
-      width: 5rem;
-      height: 5rem;
-      border-radius: 50%;
-      @include link_front;
-      @include selector_hover;
-    }
-    &--font{
-      margin: auto 0;
-      text-decoration: none;
-      color: black;
-      font-size: 1.2rem;
-      @include link_front;
-    }
-  }
-  
-  &__follow{
-    margin: auto 0 auto 0;
-    @include link_front;
-  
-    &--size{
-      color: $defFontcolor;
-      background: $followBtnColor;
-      padding: 2rem 1rem 1rem 1rem;
-      text-decoration: none;
-      border-radius: 0 0 5% 5%;
-      @include selector_hover;
-      }
-    &--size:hover{
-      @include hover_hover;
-    }
-  }
-}
-.UserProf-area{
-  width: 23rem;
-  word-wrap:break-word;
-}
-
-
 
 .followTws-contener{
   margin: 0 3rem 0 3rem;

@@ -170,12 +170,10 @@
 .more-contener{
   margin: 2rem 0;
   &__more{
-    padding: 0.5rem 2.1rem;
     background-color: $backBtnColor;
     color: $defFontcolor;
-    text-decoration: none;
-    cursor: pointer;
     @include selector_hover;
+    @include link_to_font;
   }
   &__more:hover{
     @include hover_hover;

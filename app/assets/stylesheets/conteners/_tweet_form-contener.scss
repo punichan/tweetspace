@@ -109,10 +109,9 @@ label[for="tweet_tweet"]{
 .actions{
   &__send{
     background-color: $sendBtnColor;
-    padding: 0.5rem 2.1rem;
     margin-right: 30rem;
-    cursor: pointer;
     @include selector_hover;
+    @include link_to_font;
   }
   &__send:hover{
     @include hover_hover;
@@ -121,9 +120,8 @@ label[for="tweet_tweet"]{
   &__back{
     color: $defFontcolor;
     background-color: $backBtnColor;
-    padding: 0.5rem 2.1rem;
-    text-decoration: none;
     @include selector_hover;
+    @include link_to_font;
   }
   &__back:hover{
     @include hover_hover;

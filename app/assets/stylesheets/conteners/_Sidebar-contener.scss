@@ -1,0 +1,117 @@
+.Sidebar-contener{
+  margin: 0 0 0 1rem;
+  padding-right: 2rem;
+  border-right: solid black;
+  width: 25rem;
+}
+
+.Sidebar-user-section{
+  
+}
+
+.UserAva-area{
+  @include flexbox_between;
+
+  &__detail{
+    display: flex;
+
+    &--size{
+      margin-right: 2rem;
+      width: 5rem;
+      height: 5rem;
+      border-radius: 50%;
+      @include link_front;
+      @include selector_hover;
+    }
+    &--font{
+      margin: auto 0;
+      text-decoration: none;
+      color: black;
+      font-size: 1.2rem;
+      @include link_front;
+    }
+  }
+  
+  &__follow{
+    margin: auto 0 auto 0;
+    @include link_front;
+  
+    &--size{
+      color: $defFontcolor;
+      background: $followBtnColor;
+      padding: 2rem 1rem 1rem 1rem;
+      text-decoration: none;
+      border-radius: 0 0 5% 5%;
+      @include selector_hover;
+      }
+    &--size:hover{
+      @include hover_hover;
+    }
+  }
+}
+.UserProf-area{
+  width: 23rem;
+  word-wrap:break-word;
+}
+.UserFolw-area{
+  margin: 2rem auto;
+  &__follow{
+    margin-right: 2rem;
+    background-color: $followBtnColor;
+    color: $defFontcolor;
+    @include selector_hover;
+    @include link_to_font;
+  }
+  &__follow:hover{
+    @include hover_hover;
+  }
+
+  &__follower{
+    background-color: $followBtnColor;
+    color: $defFontcolor;
+    @include selector_hover;
+    @include link_to_font;
+  }
+  &__follower:hover{
+    @include hover_hover;
+  }
+}
+.UserEdit-area{
+
+  &__edit{
+    display: block;
+    margin: 1rem 0;
+    text-decoration: none;
+    color: black;
+    @include selector_hover;
+  }
+  &__edit:hover{
+    @include hover_hover;
+  }
+}
+
+.UserTwt-area{
+  margin-top: 2rem;
+
+  &__title{
+    border-top: thin $defBordercolor;
+
+    &--font{
+      font-size: 3rem;
+    }
+  }
+  &__link{
+
+    &--font{
+      display: block;
+      margin: 1rem 0;
+      background: navajowhite;
+      text-decoration: none;
+      color: black;
+      @include selector_hover;
+    }
+    &--font:hover{
+      @include hover_hover;
+    }
+  }
+}
