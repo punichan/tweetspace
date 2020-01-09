@@ -1,20 +1,8 @@
 .main-contener
-  .index-contener
-    .tweets-contener
-      -@followers.each do |follower|
-        .tweet-contener
-          .avater-contener
-            =link_to (image_tag "#{follower.avater.url}", alt: "", class: "avater-size"),  "/users/#{follower.id}" 
-            .avater-contener__btn
-            -if follower.id != current_user.id
-              -if follower.followed_by?(current_user)
-                =link_to user_relationship_path(follower.id), method: :delete do
-                  followed
-              -else
-                =link_to user_relationships_path(follower.id), method: :post do
-                  follow
-          .contents-contener
-            .contents-contener__user
-              =link_to "#{follower.name}", "/users/#{follower.id}", class:"user-name" 
-            .contents-contener__text
-              =follower.profile
+  .user-contener
+    .user-title-contener
+      .user-title-contener__title
+        %p Follower Users
+    %ul.users-list
+      =render partial: "shared/users", collection: @followers, as: :user
+    =paginate @followers

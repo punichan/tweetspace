@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :user_find, only: [:show, :edit, :update, :follows, :followers]
-  before_action :follows_find, only: [:show, :follows]
+  # before_action :follows_find, only: [:show, :follows]
   
   def index
     @users = User.order("created_at DESC").page(params[:page]).per(40)
@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @follows = @user.followings
     @tweets = @user.tweets.order("created_at DESC").limit(50)
     @like_tweets = @user.like_tweets.order("created_at DESC").limit(10)
     @followsTws = Tweet.where(user_id: @follows.ids).order("created_at DESC").limit(50)
@@ -25,11 +26,13 @@ class UsersController < ApplicationController
   end
 
   def follows
-    
+    @follows = @user.followings
+    @follows = Kaminari.paginate_array(@follows).page(params[:page]).per(40)
   end
 
   def followers
     @followers = @user.followers
+    @followers = Kaminari.paginate_array(@followers).page(params[:page]).per(40)
   end
 
   private
@@ -39,9 +42,5 @@ class UsersController < ApplicationController
 
   def user_find
     @user = User.find(params[:id])
-  end
-
-  def follows_find
-    @follows = @user.followings
   end
 end

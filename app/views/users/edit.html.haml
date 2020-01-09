@@ -1,17 +1,16 @@
-.contener
-  %h2.sign-text User Edit
+.SignForm-contener
+  .SignForm-title-contener
+  %h2 プロフィール編集
   =form_with model: @user, class: "new", local: true do |f|
     .field
       = f.label :avater
-      %br/
       = f.file_field :avater, autofocus: true, autocomplete: "avater", class: "textfield-size"
     .field
       = f.label :name
-      %br/
       = f.text_field :name, autofocus: true, autocomplete: "name", class: "textfield-size"
     .field
       = f.label :profile
-      %br/
-      = f.text_area :profile, autofocus: true, autocomplete: "profile", class: "textfield-size"
+      = f.text_area :profile, autofocus: true, autocomplete: "profile", rows: 5, cols: 50, class: "textfield-size"
     .actions
       = f.submit "edit", class: "actions__btn"
+      =link_to "BACK", :back, class: "actions__back"
