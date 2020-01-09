@@ -27,8 +27,7 @@ class TweetsController < ApplicationController
 
   def likes
     @user = User.find(params[:format])
-    @finduser = User.find(current_user.id)
-    @likes = @finduser.likes
+    @likes = @user.likes
     # @LikTws =[]
     # @likes.each do |like|
     #   @tweet = Tweet.find(like.tweet_id)
