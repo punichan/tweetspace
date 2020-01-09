@@ -19,25 +19,29 @@ class TweetsController < ApplicationController
   end
 
   def follows
-    @user = User.find(current_user.id)
-    @follows = @user.followings
+    @user = User.find(params[:format])
+    @finduser = User.find(current_user.id)
+    @follows = @finduser.followings
     @FolTws = Tweet.where(user_id: @follows.ids).order("created_at DESC").page(params[:page]).per(10)
   end
 
   def likes
-    @user = User.find(current_user.id)
-    @likes = @user.likes
+    @user = User.find(params[:format])
+    @finduser = User.find(current_user.id)
+    @likes = @finduser.likes
     # @LikTws =[]
     # @likes.each do |like|
     #   @tweet = Tweet.find(like.tweet_id)
     #   @LikTws << @tweet
     # end
     @LikTws = @likes.map{|like| Tweet.find(like.tweet_id)}
+    @LikTws = Kaminari.paginate_array(@LikTws).page(params[:page]).per(50)
   end
 
 
   def mytweets
-    @mytweets = Tweet.find(current_user.id).order("created_at DESC").page(params[:page]).per(10)
+    @user = User.find(params[:format])
+    @mytweets = Tweet.where(user_id: params[:format]).order("created_at DESC").page(params[:page]).per(50)
   end
 
   def new

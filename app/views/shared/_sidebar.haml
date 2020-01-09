@@ -9,19 +9,20 @@
     .UserProf-area
       =@user.profile
     .UserFolw-area
-      =link_to follows_user_path, class: "UserFolw-area__follow" do
+      =link_to follows_user_path(@user.id), class: "UserFolw-area__follow" do
         follow:
         =@user.followings.count
-      =link_to followers_user_path, class: "UserFolw-area__follower" do
+      =link_to followers_user_path(@user.id), class: "UserFolw-area__follower" do
         follower:
         =@user.followers.count
-    .UserEdit-area
-      =link_to "プロフィールの編集", edit_user_path, class: "UserEdit-area__edit"
+    -if @user.id == current_user.id
+      .UserEdit-area
+        =link_to "プロフィールの編集", edit_user_path(@user.id), class: "UserEdit-area__edit"
     .UserTwt-area
       .UserTwt-area__title
         .UserTwt-area__title--font Tweet
       .UserTwt-area__link
-        =link_to "#{@user.name}のTweet", mytweets_tweets_path, class: "UserTwt-area__link--font"
-        =link_to "いいねしたTweet", likes_tweets_path, class: "UserTwt-area__link--font"
+        =link_to "#{@user.name}のTweet", mytweets_tweets_path(@user.id), class: "UserTwt-area__link--font"
+        =link_to "いいねしたTweet", likes_tweets_path(@user.id), class: "UserTwt-area__link--font"
         =link_to "コメントしたTweet","#", class: "UserTwt-area__link--font"
           

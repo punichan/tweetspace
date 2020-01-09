@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   before_action :user_find, only: [:show, :edit, :update, :follows, :followers]
-  before_action :follows_find, only: [:show, :follow]
+  before_action :follows_find, only: [:show, :follows]
   
-  def users
+  def index
     @users = User.order("created_at DESC").page(params[:page]).per(40)
     
   end
@@ -25,6 +25,7 @@ class UsersController < ApplicationController
   end
 
   def follows
+    
   end
 
   def followers

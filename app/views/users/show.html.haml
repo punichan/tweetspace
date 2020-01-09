@@ -5,13 +5,9 @@
     .followTws-title-contener
       .followTws-title-contener__title
         %p Followers Tweets
-      -if @user.id == current_user.id
-        %ul.followTws-list
-          =render partial: "shared/tweets", collection: @followsTws, as: :tweet
-      - else
-        %ul.followTws-list
-          =render partial: "shared/tweets", collection: @tweets, as: :tweet
-
+      %ul.followTws-list
+        =render partial: "shared/tweets", collection: @followsTws, as: :tweet
+     
   -#   %h2 ・NEW TWEE
   -#   =render partial: "shared/tweets", collection: @tweets, as: :tweet
 

@@ -37,11 +37,11 @@
     @include link_front;
   
     &--size{
-      color: $defFontcolor;
       background: $followBtnColor;
       padding: 2rem 1rem 1rem 1rem;
       text-decoration: none;
       border-radius: 0 0 5% 5%;
+      color: $defFontcolor;
       @include selector_hover;
       }
     &--size:hover{
@@ -59,6 +59,7 @@
     margin-right: 2rem;
     background-color: $followBtnColor;
     color: $defFontcolor;
+    font-size: 1.2rem;
     @include selector_hover;
     @include link_to_font;
   }
@@ -69,6 +70,7 @@
   &__follower{
     background-color: $followBtnColor;
     color: $defFontcolor;
+    font-size: 1.2rem;
     @include selector_hover;
     @include link_to_font;
   }
