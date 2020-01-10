@@ -14,10 +14,10 @@ Rails.application.routes.draw do
 
   resources :tweets do
     collection do
-      get 'follows'
-      get 'likes'
-      get 'mytweets'
-      get 'top'
+      get :follows
+      get :likes
+      get :mytweets
+      get :top
     end
     
     resources :comments, only: [:create, :edit, :update, :destroy]
