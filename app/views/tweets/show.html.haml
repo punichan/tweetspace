@@ -10,7 +10,7 @@
         .DelEdits-area
           =link_to edit_tweet_path, class: "DelEdits-area--edit" do
             =icon 'fas', 'pen-square'
-          =link_to tweet_path, method: :delete, class: "DelEdits-area--delete" do
+          =link_to tweet_path(@tweet.id), method: :delete, class: "DelEdits-area--delete" do
             =icon 'far', 'trash-alt'
         .DelFood-area
           .DelFood-area__store

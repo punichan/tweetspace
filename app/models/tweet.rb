@@ -6,7 +6,7 @@ class Tweet < ApplicationRecord
   mount_uploader :image, ImageUploader
   belongs_to :user
   has_many :comments, dependent: :delete_all
-  has_many :likes
+  has_many :likes, dependent: :delete_all
   has_many :like_users, through: :likes, source: :user
   
   # current_userがいいねしているかどうかを判定してくれる
