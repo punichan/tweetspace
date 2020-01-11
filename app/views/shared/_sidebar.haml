@@ -19,7 +19,7 @@
       =link_to followers_user_path(@user.id), class: "UserFolw-area__follower" do
         follower:
         =@user.followers.count
-    -if @user.id == current_user.id
+    -if user_signed_in? && @user.id == current_user.id
       .UserEdit-area
         =link_to "プロフィールの編集", edit_user_path(@user.id), class: "UserEdit-area__edit"
     .UserTwt-area

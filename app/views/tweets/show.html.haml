@@ -7,11 +7,12 @@
           =image_tag @tweet.image.url, class: "image-section__main--size" 
       
       .DtlFood-detail-section
-        .DelEdits-area
-          =link_to edit_tweet_path, class: "DelEdits-area--edit" do
-            =icon 'fas', 'pen-square'
-          =link_to tweet_path(@tweet.id), method: :delete, class: "DelEdits-area--delete" do
-            =icon 'far', 'trash-alt'
+        -if user_signed_in? && @user_id == current_user.id
+          .DelEdits-area
+            =link_to edit_tweet_path, class: "DelEdits-area--edit" do
+              =icon 'fas', 'pen-square'
+            =link_to tweet_path(@tweet.id), method: :delete, class: "DelEdits-area--delete" do
+              =icon 'far', 'trash-alt'
         .DelFood-area
           .DelFood-area__store
             =@tweet.store
