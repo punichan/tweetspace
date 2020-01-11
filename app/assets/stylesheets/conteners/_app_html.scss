@@ -131,10 +131,11 @@
 }
 
 .fotter{
+  position: absolute;
+  bottom: 0;
   background-color: gainsboro;
-  display: flex;
-  padding: 0 2rem ;
   margin-top: 2rem;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 
