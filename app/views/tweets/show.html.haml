@@ -54,7 +54,7 @@
             .DelFoCom-UserSection
               .DelFoCom-UserSection__detail
                 =link_to (image_tag "#{comment.user.avater.url}", alt: "", class: "DelFoCom-UserSection__detail--size"), "/users/#{comment.user_id}"
-                =link_to "#{@tweet.user.name}", "/users/#{@tweet.user_id}", class:"DelFoCom-UserSection__detail--font"
+                =link_to "#{comment.user.name}", "/users/#{comment.user_id}", class:"DelFoCom-UserSection__detail--font"
             .DelFoCom-TextSection
               .DelFoCom-TextSection__comment
                 =comment.comment
