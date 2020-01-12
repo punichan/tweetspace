@@ -28,5 +28,5 @@
       .UserTwt-area__link
         =link_to "#{@user.name}のTweet", mytweets_tweets_path(@user.id), class: "UserTwt-area__link--font"
         =link_to "いいねしたTweet", likes_tweets_path(@user.id), class: "UserTwt-area__link--font"
-        =link_to "コメントしたTweet","#", class: "UserTwt-area__link--font"
+        =link_to "コメントしたTweet",comment_tweets_tweets_path(@user.id), class: "UserTwt-area__link--font"
           

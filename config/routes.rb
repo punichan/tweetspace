@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :tweets do
     collection do
+      get :comment_tweets
       get :follows
       get :likes
       get :mytweets

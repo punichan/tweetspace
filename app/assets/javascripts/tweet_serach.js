@@ -1,61 +1,85 @@
 window.onload = function(){
-
   function appendTweet(tweet){
-    var img = tweet.image.url? `<a href="#"><img alt="" class="image-size" src="${tweet.image.url}"></a>`: "";
-    var html =
-    `<li class="tweet-contener">
-      <a class="link-btn" href="/tweets/${tweet.id}"></a>
-        <div class="avater-contener">
-          <a href="/users/${tweet.user_id}"><img alt="" class="avater-size" src="${tweet.user_avater.url}"></a>
+    `<li class="tweet-post">
+      <a class="link-section" href="/tweets/${tweet.id}"></a>
+        <div class="user-section">
+          <div class="user-section__detail">
+            <a href="/users/${tweet.user.id}"><img class="user-section__detail--size" src="${tweet.user.avater.url}"></a>
+            <a class="user-section__detail--font" href="/users/${tweet.user.id}">${tweet.user.name}</a>
+          </div>
         </div>
-        <div class="contents-contener">
-          <div class="contents-contener__user">
-            <a class="user-name" href="/users/${tweet.user_id}">${tweet.user_name}</a>
-            <div class="daytime">
-              ${tweet.created_at}
+        <div class="img-section"></div>
+          <img class="img-section__img" src="${tweet.image.url}">
+        <div class="detail-section">
+          <div class="contents-area">
+            <div class="contents-area__mark">
+              <% if user_signed_in? && tweet.like_by?(current_user) %>
+                <a rel="nofollow" data-method="delete" href="/tweets/${tweet.id}/likes"><i class="far fa-heart contents-area__mark--heart"></i></a>
+                <i class="far fa-bookmark contents-area__mark--bookmark"></i>
+              <% elae %>
+                <a rel="nofollow" data-method="post" href="/tweets/${tweet.id}/likes"><i class="far fa-heart contents-area__mark--heart"></i></a>
+                <i class="far fa-bookmark contents-area__mark--bookmark"></i>
+              <% end %>
+            </div>
+            <div class="contents-area__date">
+              <div class="contents-area__date--font">
+                ${tweet.created_at.strftime("%m-%d")}
+              </div>
             </div>
           </div>
-          <div class="contents-contener__text">
+          <div class="category-area">
+            <div class="category-area__btn">
+              <div class="category-area__btn--kind">
+                ${tweet.category.name}
+              </div>
+              <div class="category-area__btn--place">
+                ${tweet.place.name}
+              </div>
+            </div>
+            <div class="category-area__store">
+              <div class="category-area__store--font">
+                ${tweet.store}
+              </div>
+            </div>
+          </div>
+          <div class="food-area">
+            <div class="food-area__name">
+              ${tweet.food}
+            </div>
+            <div class="food-area__price">
+              ${tweet.price}
+              <span>円</span>
+            </div>
+          </div>
+          <div class="tweet-area">
             ${tweet.tweet}
           </div>
-        <div class="contents-contener__image"></div>
-        ${img}
-        <div class="contents-contener__contents">
-          <div class="contents-contener__contents--likebtn-font">
-            <a rel="nofollow" data-method="delete" href="/tweets/${tweet.id}/likes"><i class="far fa-heart"></i>
-              ${tweet.likes.length}
-            </a>
-          </div>
-          <div class="contents-contener__contents--comment-font">
-            <i class="far fa-comments"></i> 
-              ${tweet.comments.length}
-          </div>
         </div>
-      </div>
     </li>`
-    $(".tweets-contener").append(html);
+
+    $(".tweets-list").append(html);
   }
   function noContent(){
     var html =
     `<li class="tweet-contener">
       NO Search Result 
     </li>`
-    $(".tweets-contener").append(html);
+    $(".tweets-list").append(html);
   }
 
-  $("#tweet").on("keyup",function(){
+  $('#search').on("keyup",function(){
     var input = $(this).val();
-    console.log("tweet")
+    console.log("this")
     if(input !== ""){
       $.ajax({
-        url:      '/',
+        url:      'tweets',
         type:     'GET',
         data:     {keyword: input},
         dataType: 'json'
       })
 
       .done(function(tweetss){
-        $(".tweets-contener").empty();
+        $(".tweets-list").empty();
         if(tweetss.length !==0){
           tweetss.forEach(function(tweet){
             appendTweet(tweet);
@@ -71,4 +95,4 @@ window.onload = function(){
       })
     }
   })
-}
+};

@@ -11,11 +11,11 @@ class TweetsController < ApplicationController
   def index
     @tweets = Tweet.order("created_at DESC").page(params[:page]).per(50)
     # @userss = User.where('name LIKE(?)', "%#{params[:keyword]}%")
-    # @tweetss = Tweet.where('tweet LIKE(?)', "%#{params[:keyword]}%")
-    # respond_to do |format|
-    #   format.html
-    #   format.json
-    # end
+    @tweetss = Tweet.where('tweet LIKE(?)', "%#{params[:keyword]}%")
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def follows
@@ -28,21 +28,22 @@ class TweetsController < ApplicationController
   def likes
     @user = User.find(params[:format])
     @likes = @user.likes
-    # @LikTws =[]
-    # @likes.each do |like|
-    #   @tweet = Tweet.find(like.tweet_id)
-    #   @LikTws << @tweet
-    # end
     @LikTws = @likes.map{|like| Tweet.find(like.tweet_id)}
     @LikTws = Kaminari.paginate_array(@LikTws).page(params[:page]).per(50)
   end
-
 
   def mytweets
     @user = User.find(params[:format])
     @mytweets = Tweet.where(user_id: params[:format]).order("created_at DESC").page(params[:page]).per(50)
   end
 
+  def comment_tweets
+    @user = User.find(params[:format])
+    @comments = @user.comments
+    @comment_tweets = @comments.map{|comment| Tweet.find(comment.tweet_id)}
+    @comment_tweets = Kaminari.paginate_array(@comment_tweets).page(params[:page]).per(50)
+  end
+  
   def new
     if user_signed_in?
       @tweet = Tweet.new 

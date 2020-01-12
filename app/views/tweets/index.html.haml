@@ -1,5 +1,8 @@
 .main-contener
   .food-contener
+    =form_with local: true do |f|
+      =f.label :search
+      =f.text_field :search ,class: "search-form"
     .food-title-contener
       .food-title-contener__title
         %p New Tweets
