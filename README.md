@@ -9,9 +9,11 @@
 メールアドレス: m@m
 </br>
 パスワード: masamikai
+</br>
 
 ## ●GitHub
 ○URL: https://github.com/punichan/tweetspace
+</br>
 
 ## ●開発環境	
 ○言語: Ruby
@@ -23,6 +25,15 @@
 ○サーバー: AWS
 </br>
 ○その他ツール: Github/ Visual Studio Code
+</br>
+
+## ●バージョン
+○Rails: 5.2.3
+</br>
+○Ruby: 2.5.1
+</br>
+○MySQL: 0.5.2
+</br>
 
 ## ●内容
 ○概要: 大阪の美味しい料理を投稿するチャットアプリ。	
