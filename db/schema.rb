@@ -43,13 +43,13 @@ ActiveRecord::Schema.define(version: 2019_12_30_122629) do
     t.string "tweet", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.integer "place_id", null: false
     t.integer "category_id", null: false
     t.string "food", null: false
     t.integer "price", null: false
     t.string "store", null: false
     t.string "image", null: false
-    t.bigint "user_id"
     t.index ["user_id"], name: "index_tweets_on_user_id"
   end
 
