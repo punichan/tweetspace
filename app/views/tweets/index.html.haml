@@ -1,6 +1,6 @@
 .main-contener
   .food-contener
-    =form_with local: true do |f|
+    =form_with url: tweets_path, method: :get, local: true do |f|
       =f.label :search
       =f.text_field :search ,class: "search-form"
     .food-title-contener

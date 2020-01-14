@@ -13,10 +13,8 @@
 
 //= require jquery
 //= require rails-ujs
-//= require jquery_ujs
 //= require turbolinks
 //= require_tree .
 //= require activestorage
-
 //= require infinite-scroll.pkgd.min
 //= require websocket_rails/main

@@ -1,10 +1,10 @@
-window.onload = function(){
+$(document).on('turbolinks:load', function() {
   function appendTweet(tweet){
     `<li class="tweet-post">
       <a class="link-section" href="/tweets/${tweet.id}"></a>
         <div class="user-section">
           <div class="user-section__detail">
-            <a href="/users/${tweet.user.id}"><img class="user-section__detail--size" src="${tweet.user.avater.url}"></a>
+            <a href="/users/${tweet.user_id}"><img class="user-section__detail--size" src="${tweet.user.avater_url}"></a>
             <a class="user-section__detail--font" href="/users/${tweet.user.id}">${tweet.user.name}</a>
           </div>
         </div>
@@ -69,7 +69,8 @@ window.onload = function(){
 
   $('#search').on("keyup",function(){
     var input = $(this).val();
-    console.log("this")
+    console.log(input)
+    
     if(input !== ""){
       $.ajax({
         url:      'tweets',
@@ -79,6 +80,7 @@ window.onload = function(){
       })
 
       .done(function(tweetss){
+        console.log(tweetss)
         $(".tweets-list").empty();
         if(tweetss.length !==0){
           tweetss.forEach(function(tweet){
@@ -95,4 +97,4 @@ window.onload = function(){
       })
     }
   })
-};
+});
