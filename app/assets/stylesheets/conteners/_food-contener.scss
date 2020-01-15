@@ -2,6 +2,26 @@
   margin: 0 3rem 0 3rem;
 }
 
+.food-form-contener{
+  margin: 2rem;
+}
+
+label[for="search"]{
+  padding: 0.5rem 2.3rem;
+  background: blue;
+}
+#search{
+  @include text_form_reset;
+  @include selector_hover;
+}
+#search:hover{
+  @include hover_hover;
+}
+#search:focus {
+  @include form_focus;
+  @include hover_hover;
+}
+
 .food-title-contener{
   &__title{
     @include heading_size;

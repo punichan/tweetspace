@@ -8,11 +8,9 @@ json.array! @tweetss do |tweet|
   json.user_name   tweet.user.name
   json.likes       tweet.likes
   json.comments    tweet.comments
+  json.category    tweet.category.name
+  json.place       tweet.place.name
+  json.store       tweet.store
+  json.price       tweet.price
+  json.food        tweet.food
 end
-
-# json.array! @userss do |user|
-#   json.id          user.id
-#   json.avater      user.avater
-#   json.name        user.name
-#   json.profile     user.profile
-# end

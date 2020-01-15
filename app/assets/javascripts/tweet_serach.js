@@ -1,39 +1,31 @@
 $(document).on('turbolinks:load', function() {
   function appendTweet(tweet){
+    var html =
     `<li class="tweet-post">
       <a class="link-section" href="/tweets/${tweet.id}"></a>
         <div class="user-section">
           <div class="user-section__detail">
-            <a href="/users/${tweet.user_id}"><img class="user-section__detail--size" src="${tweet.user.avater_url}"></a>
-            <a class="user-section__detail--font" href="/users/${tweet.user.id}">${tweet.user.name}</a>
+            <a href="/users/${tweet.user_id}"><img class="user-section__detail--size" src="${tweet.user_avater.url}"></a>
+            <a class="user-section__detail--font" href="/users/${tweet.user_id}">${tweet.user_name}</a>
           </div>
         </div>
         <div class="img-section"></div>
           <img class="img-section__img" src="${tweet.image.url}">
         <div class="detail-section">
           <div class="contents-area">
-            <div class="contents-area__mark">
-              <% if user_signed_in? && tweet.like_by?(current_user) %>
-                <a rel="nofollow" data-method="delete" href="/tweets/${tweet.id}/likes"><i class="far fa-heart contents-area__mark--heart"></i></a>
-                <i class="far fa-bookmark contents-area__mark--bookmark"></i>
-              <% elae %>
-                <a rel="nofollow" data-method="post" href="/tweets/${tweet.id}/likes"><i class="far fa-heart contents-area__mark--heart"></i></a>
-                <i class="far fa-bookmark contents-area__mark--bookmark"></i>
-              <% end %>
-            </div>
             <div class="contents-area__date">
               <div class="contents-area__date--font">
-                ${tweet.created_at.strftime("%m-%d")}
+                ${tweet.created_at}
               </div>
             </div>
           </div>
           <div class="category-area">
             <div class="category-area__btn">
               <div class="category-area__btn--kind">
-                ${tweet.category.name}
+                ${tweet.category}
               </div>
               <div class="category-area__btn--place">
-                ${tweet.place.name}
+                ${tweet.place}
               </div>
             </div>
             <div class="category-area__store">

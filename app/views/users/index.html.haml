@@ -1,5 +1,9 @@
 .main-contener
   .user-contener
+    .user-form-contener
+      =form_with url: tweets_path, method: :get, local: true do |f|
+        =f.label :search
+        =f.text_field :search ,class: "search-form"
     .user-title-contener
       .user-title-contener__title
         %p New Users

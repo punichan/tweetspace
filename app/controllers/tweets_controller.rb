@@ -10,7 +10,6 @@ class TweetsController < ApplicationController
   
   def index
     @tweets = Tweet.order("created_at DESC").page(params[:page]).per(50)
-    # @userss = User.where('name LIKE(?)', "%#{params[:keyword]}%")
     @tweetss = Tweet.where('tweet LIKE(?)', "%#{params[:keyword]}%")
     respond_to do |format|
       format.html
