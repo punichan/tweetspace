@@ -12,42 +12,37 @@
 
     -# %script{:src => "/path/to/infinite-scroll.pkgd.min.js"}
   %body
+    #wapper
+      .header
+        .header-left
+          .header-left__title
+            =link_to "/", class:"header-left__title--font" do
+              %p OSAKA
+              %P LUNCH
 
-  .header
-    .header-left
-      .header-left__title
-        =link_to "/", class:"header-left__title--font" do
+        .header-right
+          .header-right__contents
+            =link_to "みんなのTweet", tweets_path, class: "header-right__contents--tweet" 
+
+          -if user_signed_in?
+            .header-right__posts
+              =link_to "Tweet投稿", new_tweet_path, class: "header-right__posts--tweet" 
+                
+          
+          .header-right__user-contents
+            -if user_signed_in?
+              =link_to "My Page", user_path(current_user.id), class: "header-right__user-contents--page"
+              =link_to "SIGN OUT", destroy_user_session_path, method: :delete, class: "header-right__user-contents--page"
+              =link_to "MY PAGE", "/users/#{current_user.id}", class: "header-right__user-contents--page"
+            -else
+              =link_to "SIGN IN", new_user_session_path, class: "header-right__user-contents--page"
+              =link_to "SIGN UP", new_user_registration_path, class: "header-right__user-contents--page"
+                
+
+      = yield
+      
+    .fotter
+      .fotter__title
+        =link_to "/", class:"fotter__title--font" do
           %p OSAKA
           %P LUNCH
-
-    .header-right
-      .header-right__contents
-        =link_to "みんなのTweet", tweets_path, class: "header-right__contents--tweet" 
-
-      -if user_signed_in?
-        .header-right__posts
-          =link_to "Tweet投稿", new_tweet_path, class: "header-right__posts--tweet" 
-            
-      -if user_signed_in?
-        .header-right__user-contents
-          =link_to "My Page", user_path(current_user.id), class: "header-right__user-contents--page"
-
-  = yield
-  
-  .fotter
-    .fotter__title
-      =link_to "/", class:"fotter__title--font" do
-        %p OSAKA
-        %P LUNCH
-    -if user_signed_in?
-      .fotter__button
-        =link_to destroy_user_session_path, method: :delete, class: "fotter__button--sign" do
-          SIGN OUT
-        =link_to "/users/#{current_user.id}", class: "fotter__button--sign" do
-          MY PAGE
-    -else
-      .fotter__button
-        =link_to new_user_session_path, class: "fotter__button--sign" do
-          SIGN IN
-        =link_to new_user_registration_path, class: "fotter__button--sign"do
-          SIGN UP

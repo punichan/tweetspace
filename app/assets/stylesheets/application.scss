@@ -14,7 +14,19 @@ html {
 
 body {
   position: relative;
-  padding-bottom: 5rem;
+  flex-direction: column;
+  display: flex;
   font-size: 1.6em;
   font-family: 'Lato', 'Noto Sans JP', '游ゴシック Medium', '游ゴシック体', 'Yu Gothic Medium', YuGothic, 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+}
+
+#wapper{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin-bottom: 2rem;
+}
+
+.contener{
+  margin: 0 3rem 0 3rem;
 }
