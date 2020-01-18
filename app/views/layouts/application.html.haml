@@ -31,7 +31,6 @@
           
           .header-right__user-contents
             -if user_signed_in?
-              =link_to "My Page", user_path(current_user.id), class: "header-right__user-contents--page"
               =link_to "SIGN OUT", destroy_user_session_path, method: :delete, class: "header-right__user-contents--page"
               =link_to "MY PAGE", "/users/#{current_user.id}", class: "header-right__user-contents--page"
             -else
