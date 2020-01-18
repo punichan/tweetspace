@@ -17,7 +17,6 @@
         -else
           =link_to tweet_likes_path(tweet.id), method: :post do
             =icon 'far', 'heart', class: "contents-area__mark--heart"
-        =icon 'far', 'bookmark', class: "contents-area__mark--bookmark"
       .contents-area__date 
         .contents-area__date--font
           =tweet.created_at.strftime("%m-%d")

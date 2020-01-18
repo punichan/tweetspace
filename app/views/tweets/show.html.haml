@@ -7,7 +7,7 @@
           =image_tag @tweet.image.url, class: "image-section__main--size" 
       
       .DtlFood-detail-section
-        -if user_signed_in? && @user_id == current_user.id
+        -if user_signed_in? && @tweet.user_id == current_user.id
           .DelEdits-area
             =link_to edit_tweet_path, class: "DelEdits-area--edit" do
               =icon 'fas', 'pen-square'
@@ -32,7 +32,6 @@
             -else
               =link_to tweet_likes_path(@tweet.id), class: "DelContents-area__contents--heart", method: :post do
                 =icon 'far', 'heart'
-            =icon 'far', 'bookmark', class: "DelContents-area__contents--bookmark"
 
     .DtlFood-CmtTil-contener
       .DtlFood-CmtTil-section
