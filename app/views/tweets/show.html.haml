@@ -25,7 +25,7 @@
           =@tweet.tweet
 
         .DelContents-area
-          %div{id:"contents-area__mark"}
+          %div{id:"contents-area__mark_#{@tweet.id}"}
             =render partial: 'likes/like', locals: {tweet: @tweet} 
 
     .DtlFood-CmtTil-contener
