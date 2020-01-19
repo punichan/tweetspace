@@ -1,1 +1,1 @@
-$('#contents-area__mark').html("#{j(render partial: "likes/like", locals: {tweet: @tweet})}");
+$('#contents-area__mark_#{@tweet.id}').html("#{j(render partial: "likes/like", locals: {tweet: @tweet})}");
