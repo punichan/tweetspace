@@ -120,12 +120,15 @@ label[for="search"]{
     &--heart:hover{
       @include hover_hover;
     }
-    &--bookmark{
+    &--red{
       font-size: 2rem;
+      margin-right: 1rem;
+      border-radius: 50% 50%;
+      color: red;
       @include link_front;
       @include selector_hover;
     }
-    &--bookmark:hover{
+    &--red:hover{
       @include hover_hover;
     }
   }

@@ -25,13 +25,8 @@
           =@tweet.tweet
 
         .DelContents-area
-          .DelContents-area__contents
-            -if user_signed_in? && @tweet.like_by?(current_user)
-              =link_to tweet_likes_path(@tweet.id), class: "DelContents-area__contents--heart", method: :delete do
-                =icon 'far', 'heart'
-            -else
-              =link_to tweet_likes_path(@tweet.id), class: "DelContents-area__contents--heart", method: :post do
-                =icon 'far', 'heart'
+          %div{id:"contents-area__mark"}
+            =render partial: 'likes/like', locals: {tweet: @tweet} 
 
     .DtlFood-CmtTil-contener
       .DtlFood-CmtTil-section

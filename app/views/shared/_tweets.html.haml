@@ -10,13 +10,8 @@
 
   .detail-section
     .contents-area
-      .contents-area__mark
-        -if user_signed_in? && tweet.like_by?(current_user)
-          =link_to tweet_likes_path(tweet.id), method: :delete do
-            =icon 'far', 'heart', class: "contents-area__mark--heart"
-        -else
-          =link_to tweet_likes_path(tweet.id), method: :post do
-            =icon 'far', 'heart', class: "contents-area__mark--heart"
+      %div{id:"contents-area__mark"}
+        =render partial: 'likes/like', locals: {tweet: tweet} 
       .contents-area__date 
         .contents-area__date--font
           =tweet.created_at.strftime("%m-%d")
