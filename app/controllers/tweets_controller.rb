@@ -55,7 +55,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new(tweet_params)
     @tweet.user_id = current_user.id
     if @tweet.save
-      redirect_to user_path(current_user.id)
+      redirect_to tweet_path(@tweet.id)
     else
       redirect_to root_path
     end
@@ -70,8 +70,8 @@ class TweetsController < ApplicationController
   end
 
   def update
-      @tweet.update(tweet_params)
-      redirect_to user_path(current_user.id)
+    @tweet.update(tweet_params)
+    redirect_to tweet_path(@tweet.id)
   end
 
   def destroy
