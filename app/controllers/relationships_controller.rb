@@ -1,4 +1,6 @@
 class RelationshipsController < ApplicationController
+  before_action :move_to_signup
+  
   def create
     follow = current_user.active_relationships.new(follower_id: params[:user_id])
     follow.save

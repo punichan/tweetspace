@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
   before_action :move_to_signup
-  before_action :comment_find, only: [:edit, :destroy, :update]
 
   def create
     @comment = Comment.new(comment_params)
@@ -12,18 +11,14 @@ class CommentsController < ApplicationController
       redirect_to root_path
     end
   end
-
-  def destroy
-    @comment.destroy
-    redirect_to tweet_path(params[:tweet_id])
-  end
   
   def edit
+    @comment = Comment.find_by( id: params[:id], tweet_id: params[:tweet_id])
     @tweet = Tweet.find(params[:tweet_id])
   end
 
   def update
-    @comment.user_id == current_user.id
+    @comment = Comment.find_by( id: params[:id], tweet_id: params[:tweet_id])
     if @comment.update(comment_params)
       redirect_to tweet_path(params[:tweet_id])
     else
@@ -31,18 +26,19 @@ class CommentsController < ApplicationController
     end 
   end
 
+  def destroy
+    @comment = Comment.find_by( id: params[:id], tweet_id: params[:tweet_id])
+    if @comment.destroy
+      redirect_to tweet_path(params[:tweet_id])
+    else
+      redirect_to root_path
+    end
+  end
+
   private
 
   def comment_params
     params.require(:comment).permit(:comment)
-  end
-
-  def move_to_signup
-    redirect_to new_user_session_path unless user_signed_in?
-  end
-
-  def comment_find
-    @comment = Comment.find_by( id: params[:id], tweet_id: params[:tweet_id])
   end
 
 end

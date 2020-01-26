@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   root to: 'tweets#top'
 
   resources :users do
-    collection do
-    end
     resources :relationships, only: [:create, :destroy]
       member do
         get :follows
@@ -20,8 +18,12 @@ Rails.application.routes.draw do
       get :mytweets
       get :top
     end
-    
+
     resources :comments, only: [:create, :edit, :update, :destroy]
-    resource :likes, only: [:create, :destroy]
+    resource :likes,     only: [:create, :destroy]
+  end
+
+  resources :groups,     only: [:new, :create, :update, :destroy] do
+    resources :messages, only: [:index, :create, ]
   end
 end
