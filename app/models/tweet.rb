@@ -15,6 +15,12 @@ class Tweet < ApplicationRecord
     likes.where(user_id: user.id).exists?
   end
 
-  validates :tweet, presence: true
-  validates :user_id, presence: true
+  validates :tweet,       presence: true, length: {maximum: 300}
+  validates :user_id,     presence: true
+  validates :place_id,    presence: true
+  validates :category_id, presence: true
+  validates :food,        presence: true, length: {maximum: 30}
+  validates :price,       presence: true, length: {maximum: 8}, numericality: true
+  validates :store,       presence: true, length: {maximum: 30}
+  validates :image,       presence: true
 end
