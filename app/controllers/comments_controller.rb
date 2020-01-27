@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
     @comment.tweet_id = params[:tweet_id]
-    if@comment.save!
+    if @comment.save!
       redirect_to tweet_path(params[:tweet_id])
     else
       redirect_to root_path
