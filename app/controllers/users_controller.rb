@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :user_find, expect: [:index]
   
   def index
     @users = User.order("created_at DESC").page(params[:page]).per(40)
@@ -10,31 +11,27 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
     @follows = @user.followings
     @followsTws = Tweet.where(user_id: @follows.ids).order("created_at DESC").limit(50)
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
-    if @user.id == current_user.id
-      @user.update(user_params)
-    end
+    if @user.update(user_params)
       redirect_to user_path(current_user.id)
+    else
+      redirect_to root_path
+    end
   end
 
   def follows
-    @user = User.find(params[:id])
     @follows = @user.followings
     @follows = Kaminari.paginate_array(@follows).page(params[:page]).per(40)
   end
 
   def followers
-    @user = User.find(params[:id])
     @followers = @user.followers
     @followers = Kaminari.paginate_array(@followers).page(params[:page]).per(40)
   end
@@ -43,6 +40,10 @@ class UsersController < ApplicationController
   
   def user_params
     params.require(:user).permit(:avater, :name, :profile)
+  end
+
+  def user_find
+    @user = User.find(params[:id])
   end
 
 end
