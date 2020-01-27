@@ -6,13 +6,13 @@
       =f.file_field :image, autofocus: true, autocomplete: "image"
     .field
       =f.label :food
-      =f.text_area :food, autofocus: true, rows: 1, cols: 50, placeholder: "Up to 30 characters"
+      =f.text_area :food, autofocus: true, rows: 1, cols: 50, placeholder: "30文字以内"
     .field
       =f.label :store
-      =f.text_area :store, autofocus: true, rows: 1, cols: 50, placeholder: "Up to 30 characters"
+      =f.text_area :store, autofocus: true, rows: 1, cols: 50, placeholder: "30文字以内"
     .field
       =f.label :price
-      =f.text_area :price, autofocus: true, rows: 1, cols: 50, placeholder: "Up to 30 characters"
+      =f.text_area :price, autofocus: true, rows: 1, cols: 50, placeholder: "8桁以内"
     .field
       =f.label :place_id
       =f.collection_select :place_id, Place.all, :id, :name, prompt: true
@@ -21,7 +21,7 @@
       =f.collection_select :category_id, Category.all, :id, :name, prompt: true
     .field
       =f.label :tweet
-      =f.text_area :tweet, autofocus: true, rows: 5, cols: 50
+      =f.text_area :tweet, autofocus: true, rows: 5, cols: 50, placeholder: "300文字以内"
     .actions
       =f.submit "SEND", class: "actions__send"
       =link_to "BACK", :back, class: "actions__back"

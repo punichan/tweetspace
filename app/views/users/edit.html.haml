@@ -7,10 +7,10 @@
       = f.file_field :avater, autofocus: true, autocomplete: "avater", class: "textfield-size"
     .field
       = f.label :name
-      = f.text_field :name, autofocus: true, autocomplete: "name", class: "textfield-size"
+      = f.text_field :name, autofocus: true, autocomplete: "name", class: "textfield-size", placeholder: "8文字以内"
     .field
       = f.label :profile
-      = f.text_area :profile, autofocus: true, autocomplete: "profile", rows: 5, cols: 50, class: "textfield-size"
+      = f.text_area :profile, autofocus: true, autocomplete: "profile", rows: 5, cols: 50, class: "textfield-size", placeholder: "300文字以内"
     .actions
       = f.submit "edit", class: "actions__btn"
       =link_to "BACK", :back, class: "actions__back"
