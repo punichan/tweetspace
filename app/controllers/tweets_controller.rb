@@ -2,6 +2,7 @@ class TweetsController < ApplicationController
   before_action :move_to_signup, only: [:new, :create, :edit, :update, :destroy]
   before_action :tweet_find, only: [:show, :edit, :update, :destroy, ]
   before_action :user_find, only: [:follows, :likes, :mytweets, :comment_tweets]
+
   def top
     @tweets = Tweet.order("created_at DESC").limit(8)
     @users = User.order("created_at DESC").limit(8)
@@ -17,11 +18,7 @@ class TweetsController < ApplicationController
   end
 
   def new
-    if user_signed_in?
-      @tweet = Tweet.new 
-    else
-      redirect_to new_user_session_path
-    end
+      @tweet = Tweet.new
   end
 
   def create
@@ -43,13 +40,16 @@ class TweetsController < ApplicationController
   end
 
   def update
-    @tweet.update(tweet_params)
-    redirect_to tweet_path(@tweet.id)
+    if @tweet.update(tweet_params)
+      redirect_to tweet_path(@tweet.id)
+    else
+      redirect_to root_path
+    end
   end
 
   def destroy
-    if @tweet.user_id == current_user.id
-      @tweet.destroy
+    @tweet.user_id == current_user.id
+    if @tweet.destroy
       redirect_to user_path(current_user.id)
     else
       redirect_to root_path
