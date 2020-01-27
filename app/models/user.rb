@@ -22,5 +22,6 @@ class User < ApplicationRecord
     passive_relationships.find_by(following_id: user.id).present?
   end
 
-  validates :name, presence: true
+  validates :name,    presence: true, length: {maximum: 8}
+  validates :profile, length: {maximum: 300}
 end

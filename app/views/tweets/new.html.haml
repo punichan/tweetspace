@@ -6,13 +6,13 @@
       =f.file_field :image, autofocus: true, autocomplete: "image"
     .field
       =f.label :food
-      =f.text_area :food, autofocus: true, rows: 1, cols: 50, placeholder: "３０文字以内"
+      =f.text_area :food, autofocus: true, rows: 1, cols: 50, placeholder: "30文字以内"
     .field
       =f.label :store
-      =f.text_area :store, autofocus: true, rows: 1, cols: 50, placeholder: "３０文字以内"
+      =f.text_area :store, autofocus: true, rows: 1, cols: 50, placeholder: "30文字以内"
     .field
       =f.label :price
-      =f.text_area :price, autofocus: true, rows: 1, cols: 50, placeholder: "８桁以内"
+      =f.text_area :price, autofocus: true, rows: 1, cols: 50, placeholder: "8桁以内"
     .field
       =f.label :place_id
       =f.collection_select :place_id, Place.all, :id, :name, prompt: true
