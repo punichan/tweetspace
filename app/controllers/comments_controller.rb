@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :move_to_signup
+  before_action :comment_find, only: [:edit, :update, :destroy]
 
   def create
     @comment = Comment.new(comment_params)
@@ -13,12 +14,10 @@ class CommentsController < ApplicationController
   end
   
   def edit
-    @comment = Comment.find_by( id: params[:id], tweet_id: params[:tweet_id])
     @tweet = Tweet.find(params[:tweet_id])
   end
 
   def update
-    @comment = Comment.find_by( id: params[:id], tweet_id: params[:tweet_id])
     if @comment.update(comment_params)
       redirect_to tweet_path(params[:tweet_id])
     else
@@ -27,7 +26,6 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = Comment.find_by( id: params[:id], tweet_id: params[:tweet_id])
     if @comment.destroy
       redirect_to tweet_path(params[:tweet_id])
     else
@@ -39,6 +37,10 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:comment)
+  end
+
+  def comment_find
+    @comment = Comment.find_by( id: params[:id], tweet_id: params[:tweet_id])
   end
 
 end
