@@ -18,7 +18,7 @@ class TweetsController < ApplicationController
   end
 
   def new
-      @tweet = Tweet.new
+    @tweet = Tweet.new
   end
 
   def create
@@ -43,7 +43,7 @@ class TweetsController < ApplicationController
     if @tweet.update(tweet_params)
       redirect_to tweet_path(@tweet.id)
     else
-      redirect_to root_path
+      render action: :new
     end
   end
 
