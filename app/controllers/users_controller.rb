@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :user_find, expect: [:index]
+  before_action :user_find, except: [:index]
   
   def index
     @users = User.order("created_at DESC").page(params[:page]).per(40)
