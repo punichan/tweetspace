@@ -38,7 +38,7 @@
           =form_with model:[@tweet, @comment], local: true do |f|
             .CmtFomField-area
               =f.label :comment
-              =f.text_area :comment, rows: "5", cols: "50"
+              =f.text_area :comment, rows: "5", cols: "50", placeholder: "200文字以内"
             .CmtFomAct-area
               =f.submit "send", class: "CmtFomAct-area__btn"
 

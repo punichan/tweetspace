@@ -1,5 +1,10 @@
 .contener
   %h2.contener__title New Tweet
+  - if @tweet.errors.any?
+    .alert.alert-warning
+      %ul
+      - @tweet.errors.full_messages.each do |message|
+        %li=message
   =form_with model: @tweet, class: "form-contener__form", local: true do |f|
     .field
       =f.label :image
