@@ -1,5 +1,9 @@
 .contener
   %h2.contener__title Edit Tweet
+  - if @tweet.errors.any?
+    %ul.error-title エラー！
+    - @tweet.errors.full_messages.each do |message|
+      %li=message
   =form_with model: @tweet, class: "new", local: true do |f|
     .field
       =f.label :image
