@@ -1,31 +1,34 @@
 .contener
-  %h2.contener__title New Tweet
-  - if @tweet.errors.any?
-    %ul.error-title エラー！
-    - @tweet.errors.full_messages.each do |message|
-      %li=message
-  =form_with model: @tweet, class: "form-contener__form", local: true do |f|
-    .field
-      =f.label :image
-      =f.file_field :image, autofocus: true, autocomplete: "image"
-    .field
-      =f.label :food
-      =f.text_area :food, autofocus: true, rows: 1, cols: 50, placeholder: "30文字以内"
-    .field
-      =f.label :store
-      =f.text_area :store, autofocus: true, rows: 1, cols: 50, placeholder: "30文字以内"
-    .field
-      =f.label :price
-      =f.text_area :price, autofocus: true, rows: 1, cols: 50, placeholder: "8桁以内"
-    .field
-      =f.label :place_id
-      =f.collection_select :place_id, Place.all, :id, :name, prompt: true
-    .field
-      =f.label :category_id
-      =f.collection_select :category_id, Category.all, :id, :name, prompt: true
-    .field
-      =f.label :tweet
-      =f.text_area :tweet, autofocus: true, rows: 5, cols: 50, placeholder: "300文字以内"
-    .actions
-      =f.submit "SEND", class: "actions__send"
-      =link_to "BACK", :back, class: "actions__back"
+  .left-contener
+    %h2.contener__title New Tweet
+    - if @tweet.errors.any?
+      %ul.error-title エラー！
+      - @tweet.errors.full_messages.each do |message|
+        %li=message
+    =form_with model: @tweet, class: "form-contener__form", local: true do |f|
+      .field
+        =f.label :image
+        =f.file_field :image, autofocus: true, autocomplete: "image"
+      
+        
+      .field
+        =f.label :food
+        =f.text_area :food, autofocus: true, rows: 1, cols: 50, placeholder: "30文字以内"
+      .field
+        =f.label :store
+        =f.text_area :store, autofocus: true, rows: 1, cols: 50, placeholder: "30文字以内"
+      .field
+        =f.label :price
+        =f.text_area :price, autofocus: true, rows: 1, cols: 50, placeholder: "8桁以内"
+      .field
+        =f.label :place_id
+        =f.collection_select :place_id, Place.all, :id, :name, prompt: true
+      .field
+        =f.label :category_id
+        =f.collection_select :category_id, Category.all, :id, :name, prompt: true
+      .field
+        =f.label :tweet
+        =f.text_area :tweet, autofocus: true, rows: 5, cols: 50, placeholder: "300文字以内"
+      .actions
+        =f.submit "SEND", class: "actions__send"
+        =link_to "BACK", :back, class: "actions__back"
